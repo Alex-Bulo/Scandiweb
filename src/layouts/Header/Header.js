@@ -2,7 +2,7 @@ import React from "react";
 import { client, Query } from "@tilework/opus";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
-import CurrencySelector from "../CurrencySelector/CurrencySelector";
+import CurrencySnippet from "../CurrencySnippet/CurrencySelector";
 import CartSnippet from "../CartSnippet/CartSnippet";
 import logo from "../../assets/images/a-logo.png";
 import "./Header.css";
@@ -38,7 +38,7 @@ class Header extends React.Component {
         </Link>
 
         <div className="picker-container">
-          <CurrencySelector />
+          <CurrencySnippet />
 
           <CartSnippet />
         </div>

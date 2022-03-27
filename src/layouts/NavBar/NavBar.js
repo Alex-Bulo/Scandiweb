@@ -14,10 +14,9 @@ const MenuCategory = styled.li`
 `;
 
 class NavBar extends React.Component {
-  // render styledComponent li, links from props (categories)
 
   render() {
-    console.log(this.props.categories);
+
     return (
       <nav className="NavBar">
         <ul>

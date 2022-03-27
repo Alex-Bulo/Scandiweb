@@ -14,6 +14,10 @@ export const CurrencySwitcher = styled.section`
   flex-direction: column;
   justify-content:center;
   align-items:center;
+  
+  opacity:0;
+  
+  animation: fade-in 1s ease-in-out .5s forwards;
 `;
 
 export const AvailableCurrency = styled.article`
