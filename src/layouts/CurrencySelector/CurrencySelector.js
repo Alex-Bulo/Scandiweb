@@ -1,7 +1,12 @@
 import React from "react";
+import CurrencyContext from "../../services/context/currencyContext";
 
 class CurrencySelector extends React.Component {
-    
+    static contextType = CurrencyContext;
+
+    componentDidMount(){
+      console.log('CURRENCY SELECTOR ',this.context);
+    }
 // grab context Currency, show selectedCurrency
 // render PopUp
 
@@ -10,7 +15,8 @@ class CurrencySelector extends React.Component {
     
     return (
       <div className="CurrencySelector">
-          Currency
+          {this.context.selectedCurrency.symbol}
+          {this.context.selectedCurrency.label}<br/>
       </div>
     );
   }

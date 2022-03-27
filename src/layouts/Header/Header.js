@@ -1,11 +1,11 @@
-import { client, Query } from "@tilework/opus";
 import React from "react";
-import CartSnippet from "../CartSnippet/CartSnippet";
-import CurrencySelector from "../CurrencySelector/CurrencySelector";
-import NavBar from "../NavBar/NavBar";
-import './Header.css'
-import logo from '../../assets/images/a-logo.png'
+import { client, Query } from "@tilework/opus";
 import { Link } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
+import CurrencySelector from "../CurrencySelector/CurrencySelector";
+import CartSnippet from "../CartSnippet/CartSnippet";
+import logo from '../../assets/images/a-logo.png'
+import './Header.css'
 
 class Header extends React.Component {
     
@@ -33,9 +33,13 @@ class Header extends React.Component {
   render() {
     return (
       <header className="Header">
+
         {this.state.menuCategories && <NavBar categories={this.state.menuCategories} />}
+        
         <Link to='/plp/all'><img src={logo} alt='Logo for coding challange for Scandiweb'/></Link>
+        
         <CurrencySelector />
+        
         <CartSnippet />
         
       </header>
