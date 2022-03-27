@@ -7,7 +7,7 @@ class NavBar extends React.Component {
 
 
   render() {
-    
+    console.log(this.props.categories);
     return (
       <nav className="NavBar">
         <ul>
