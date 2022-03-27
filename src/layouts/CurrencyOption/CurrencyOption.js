@@ -2,9 +2,9 @@ import React from "react";
 import CurrencyContext from "../../services/context/currencyContext";
 import "./CurrencyOption.css";
 import arrowDown from "../../assets/icons/angle-down-solid.svg";
-import { Background } from "../../services/helpers/PopUpContainer.styled";
+import { Background } from "../../services/helpers/PopUpContainer";
 import { AvailableCurrency, CurrencySwitcher } from "./CurrencyOption.styled";
-import NavOption from "../Header/Header.styled";
+import NavOption from "../Header/NavOption";
 
 class CurrencyOption extends React.Component {
   static contextType = CurrencyContext;
@@ -39,7 +39,7 @@ class CurrencyOption extends React.Component {
           {this.state.popUpDisplay && (
             <Background
               op={0}
-              onClick={() =>
+              clickHandler={() =>
                 this.setState({ ...this.state, popUpDisplay: false })
               }
             >

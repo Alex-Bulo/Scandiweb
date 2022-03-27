@@ -14,7 +14,7 @@ export class CartProvider extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ cartItems: [], cartTotal: 2 });
+    this.setState({ cartItems: [], cartTotal: 0 });
   }
 
   newCartItemHandler(cartItem) {

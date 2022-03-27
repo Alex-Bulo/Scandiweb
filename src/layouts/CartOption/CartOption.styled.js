@@ -5,6 +5,6 @@ export const CartOverlay = styled(Switcher)`
   width: 200px;
   height:100px;
   left: ${props => (props.x-180)+'px'};
-  top:-10px;
+  top:-15px;
 `
 

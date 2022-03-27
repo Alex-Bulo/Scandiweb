@@ -1,9 +1,9 @@
 import React from "react";
 import CartContext from "../../services/context/cartContext";
-import NavOption from "../Header/Header.styled";
+import NavOption from "../Header/NavOption";
 import cartIcn from "../../assets/icons/empty-cart.svg";
 import "./CartOption.css";
-import { Background } from "../../services/helpers/PopUpContainer.styled";
+import { Background } from "../../services/helpers/PopUpContainer";
 import { CartOverlay } from "./CartOption.styled";
 
 class CartOption extends React.Component {
@@ -47,13 +47,13 @@ class CartOption extends React.Component {
         {this.state.popUpDisplay && (
           <Background
             op={.2}
-            onClick={() =>
+            clickHandler={() =>
               this.setState({ ...this.state, popUpDisplay: false })
             }
           >
             
-            <CartOverlay x={this.state.optionPosition}>
-              Hola
+            <CartOverlay x={this.state.optionPosition} onClick={(e)=>e.stopPropagation()}>
+              Carrito
             </CartOverlay>
           </Background>
         )}
