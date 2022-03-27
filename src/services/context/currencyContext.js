@@ -9,6 +9,7 @@ export class CurrencyProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = { currencies: null, selectedCurrency: null };
+    this.newCurrencyHandler = this.newCurrencyHandler.bind(this)
   }
 
   async componentDidMount() {
@@ -23,9 +24,11 @@ export class CurrencyProvider extends React.Component {
     console.log(currencies[0]);
     this.setState({ currencies: currencies, selectedCurrency: currencies[0] });
   }
+
   newCurrencyHandler(currency) {
     this.setState({ ...this.state, selectedCurrency: currency });
   }
+
   render() {
     return (
       <CurrencyContext.Provider

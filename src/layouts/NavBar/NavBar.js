@@ -22,8 +22,8 @@ class NavBar extends React.Component {
       <nav className="NavBar">
         <ul>
           {this.props.categories.map((category, i) => (
-            <MenuCategory>
-              <NavLink key={i} to={`plp/${category.name}`} className='link-menu'>
+            <MenuCategory key={i}>
+              <NavLink to={`plp/${category.name}`} className='link-menu'>
                 {category.name.toUpperCase()}
               </NavLink>
             </MenuCategory>
