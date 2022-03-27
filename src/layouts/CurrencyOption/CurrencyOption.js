@@ -1,12 +1,12 @@
 import React from "react";
 import CurrencyContext from "../../services/context/currencyContext";
-import "./CurrencySnippet.css";
+import "./CurrencyOption.css";
 import arrowDown from "../../assets/icons/angle-down-solid.svg";
 import { Background } from "../../services/helpers/PopUpContainer.styled";
-import { AvailableCurrency, CurrencySwitcher } from "./CurrencySwitcher.styled";
+import { AvailableCurrency, CurrencySwitcher } from "./CurrencyOption.styled";
 import NavOption from "../Header/Header.styled";
 
-class CurrencySnippet extends React.Component {
+class CurrencyOption extends React.Component {
   static contextType = CurrencyContext;
 
   constructor() {
@@ -29,7 +29,7 @@ class CurrencySnippet extends React.Component {
   render() {
     return (
       this.context.selectedCurrency && (
-        <section className="CurrencySnippet">
+        <section className="CurrencyOption">
           <NavOption getMiddlePosition={this.getOptionPositionHandler} clickHandler={this.popUpHandler}>
 
             {this.context.selectedCurrency.symbol}
@@ -45,6 +45,7 @@ class CurrencySnippet extends React.Component {
               }
             >
               <CurrencySwitcher x={this.state.optionPosition}>
+                
                 {this.context.currencies.map((currency) => (
                   <AvailableCurrency
                     key={currency.label}
@@ -55,6 +56,7 @@ class CurrencySnippet extends React.Component {
                   >
                     {currency.symbol} {currency.label}
                   </AvailableCurrency>
+                
                 ))}
               </CurrencySwitcher>
             </Background>
@@ -65,4 +67,4 @@ class CurrencySnippet extends React.Component {
   }
 }
 
-export default CurrencySnippet;
+export default CurrencyOption;

@@ -1,6 +1,6 @@
 import React from "react";
 
-class CartSnippet extends React.Component {
+class CartOption extends React.Component {
     
 // grab context Cart, show cartTotal
 // render PopUp
@@ -9,11 +9,11 @@ class CartSnippet extends React.Component {
   render() {
     
     return (
-      <div className="CartSnippet">
+      <div className="CartOption">
           Cart
       </div>
     );
   }
 }
 
-export default CartSnippet;
+export default CartOption;

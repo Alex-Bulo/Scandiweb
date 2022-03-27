@@ -2,8 +2,8 @@ import React from "react";
 import { client, Query } from "@tilework/opus";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
-import CurrencySnippet from "../CurrencySnippet/CurrencySelector";
-import CartSnippet from "../CartSnippet/CartSnippet";
+import CurrencyOption from "../CurrencyOption/CurrencyOption";
+import CartOption from "../CartOption/CartOption";
 import logo from "../../assets/images/a-logo.png";
 import "./Header.css";
 
@@ -38,9 +38,9 @@ class Header extends React.Component {
         </Link>
 
         <div className="picker-container">
-          <CurrencySnippet />
+          <CurrencyOption />
 
-          <CartSnippet />
+          <CartOption />
         </div>
       </header>
     );

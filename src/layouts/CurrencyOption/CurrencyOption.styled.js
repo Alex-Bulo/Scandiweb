@@ -1,24 +1,11 @@
-import React from "react";
-// import "./CurrencySnippet.css";
 import styled from "styled-components";
+import { Switcher } from "../../components/styledComponents";
 
-export const CurrencySwitcher = styled.section`
+export const CurrencySwitcher = styled(Switcher)`
   width: 114px;
-  position: absolute;
   left: ${props => (props.x-57)+'px'};
-
-  background-color: #fff;
-  filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, .19));
-
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items:center;
-  
-  opacity:0;
-  
-  animation: fade-in 1s ease-in-out .5s forwards;
-`;
+  top:-15px;
+`
 
 export const AvailableCurrency = styled.article`
     width: 100%;
