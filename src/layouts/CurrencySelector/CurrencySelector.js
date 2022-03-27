@@ -57,7 +57,10 @@ class CurrencySelector extends React.Component {
                   
                   <AvailableCurrency
                     key={currency.label}
-                    onClick={() => this.context.selectNewCurrency(currency)}
+                    onClick={() => {
+                      this.context.selectNewCurrency(currency)
+                      this.setState({...this.state, popUpDisplay:false})
+                    }}
                   >
                     {currency.symbol} {currency.label}
                   </AvailableCurrency>
