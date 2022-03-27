@@ -3,7 +3,7 @@ import CurrencyContext from "../../services/context/currencyContext";
 import "./CurrencySelector.css";
 import arrowDown from "../../assets/icons/angle-down-solid.svg";
 import styled from "styled-components";
-import PopUpContainer from "../../services/helpers/PopUpContainer";
+import {Background} from "../../services/helpers/PopUpContainer.styled";
 import { AvailableCurrency, BoxOfCurrencies } from "./CurrencySnippet.styled";
 
 const Currency = styled.div`
@@ -50,7 +50,7 @@ class CurrencySelector extends React.Component {
           </Currency>
 
           {this.state.popUpDisplay && (
-            <PopUpContainer op={0}>
+            <Background op={0} onClick={()=>this.setState({...this.state, popUpDisplay:false})}>
               
               <BoxOfCurrencies x={this.state.selectorLocation}>
                 {this.context.currencies.map((currency) => (
@@ -68,7 +68,7 @@ class CurrencySelector extends React.Component {
                 ))}
 
               </BoxOfCurrencies>
-            </PopUpContainer>
+            </Background>
           )}
         </section>
       )
