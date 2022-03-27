@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Raleway';
+    src: local('Raleway'),
+         url('../fonts/Raleway-VariableFont.ttf') format('ttf');
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+
+    --primary-font-color: rgba(29, 31, 34, 1);
+    --secondary-font-color: rgba(94, 206, 123, 1);
+    --disabled-font-color: rgba(141, 143, 154, 1);
+    --accent-font-color: rgba(255, 255, 255, 1);
+    --bkg-color: rgba(255, 255, 255, 1);
+    --accent-bkg-color:rgba(94, 206, 123, 1);
+    --selected-bkg-color:rgba(0, 0, 0, 1);
+}
+
+.cta-primary{
+    background-color: var(--accent-bkg-color);
+    color:var(--accent-font-color);
+    font-weight: 600;
+    font-size: 16px;
+}
+.cta-secondary{
+    background-color: var(--bkg-color);
+    color:var(--primary-font-color);
+    border: 1px solid #000;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.preview-title{
+    color:var(--primary-font-color);
+    font-weight: 300;
+    font-size: 16px;
+}
+.price{
+    color:var(--primary-font-color);
+    font-weight: 500;
+    font-size: 16px;
+}
+.selected{
+    background-color: var(--selected-bkg-color);
+    color: var(--accent-font-color);
+    font-weight: 400;
+}
+.option{
+    background-color: var(--bkg-color);
+    color:var(--primary-font-color);
+    border: 1px solid #000;
+    font-weight: 400;
+}
+.brand-name{
+    color:var(--primary-font-color);
+    font-weight: 600;
+    font-size: 30px;
+}
+.product-name{
+    color:var(--primary-font-color);
+    font-weight: 400;
+    font-size: 30px;
+}
+.disabled{
+    color: var(--disabled-font-color) !important;
+}
