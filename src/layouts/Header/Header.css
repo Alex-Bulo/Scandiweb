@@ -8,3 +8,8 @@
     align-items: center;
 
 }
+
+.picker-container{
+    display: flex;
+    flex-direction: row;
+}
