@@ -2,7 +2,7 @@ import React from "react";
 // import "./CurrencySnippet.css";
 import styled from "styled-components";
 
-export const BoxOfCurrencies = styled.section`
+export const CurrencySwitcher = styled.section`
   width: 114px;
   position: absolute;
   left: ${props => (props.x-57)+'px'};

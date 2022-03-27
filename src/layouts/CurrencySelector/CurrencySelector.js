@@ -3,8 +3,8 @@ import CurrencyContext from "../../services/context/currencyContext";
 import "./CurrencySelector.css";
 import arrowDown from "../../assets/icons/angle-down-solid.svg";
 import styled from "styled-components";
-import {Background} from "../../services/helpers/PopUpContainer.styled";
-import { AvailableCurrency, BoxOfCurrencies } from "./CurrencySnippet.styled";
+import { Background } from "../../services/helpers/PopUpContainer.styled";
+import { AvailableCurrency, CurrencySwitcher } from "./CurrencySwitcher.styled";
 
 const Currency = styled.div`
   width: 40px;
@@ -33,14 +33,15 @@ class CurrencySelector extends React.Component {
 
   render() {
     return (
-      this.context.selectedCurrency && (        
+      this.context.selectedCurrency && (
         <section className="CurrencySelector">
-          
           <Currency
             ref={this.myPicker}
             onClick={() =>
               this.setState({
-                selectorLocation: this.myPicker.current.getBoundingClientRect().x + this.myPicker.current.getBoundingClientRect().width / 2,
+                selectorLocation:
+                  this.myPicker.current.getBoundingClientRect().x +
+                  this.myPicker.current.getBoundingClientRect().width / 2,
                 popUpDisplay: true,
               })
             }
@@ -50,24 +51,25 @@ class CurrencySelector extends React.Component {
           </Currency>
 
           {this.state.popUpDisplay && (
-            <Background op={0} onClick={()=>this.setState({...this.state, popUpDisplay:false})}>
-              
-              <BoxOfCurrencies x={this.state.selectorLocation}>
+            <Background
+              op={0}
+              onClick={() =>
+                this.setState({ ...this.state, popUpDisplay: false })
+              }
+            >
+              <CurrencySwitcher x={this.state.selectorLocation}>
                 {this.context.currencies.map((currency) => (
-                  
                   <AvailableCurrency
                     key={currency.label}
                     onClick={() => {
-                      this.context.selectNewCurrency(currency)
-                      this.setState({...this.state, popUpDisplay:false})
+                      this.context.selectNewCurrency(currency);
+                      this.setState({ ...this.state, popUpDisplay: false });
                     }}
                   >
                     {currency.symbol} {currency.label}
                   </AvailableCurrency>
-                
                 ))}
-
-              </BoxOfCurrencies>
+              </CurrencySwitcher>
             </Background>
           )}
         </section>
