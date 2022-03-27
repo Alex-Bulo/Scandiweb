@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const Background = styled.div`
@@ -10,4 +9,7 @@ export const Background = styled.div`
   left: 0;
 
   background-color: rgba(0, 0, 0, ${props => props.op});
+  
+  opacity:0;
+  animation: fade-in .5s ease-in-out .2s forwards;
 `;

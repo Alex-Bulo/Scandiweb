@@ -24,7 +24,6 @@ class NavOption extends React.Component {
   componentDidMount(){
     this.props.getMiddlePosition(this.myPicker.current.getBoundingClientRect().x +
     this.myPicker.current.getBoundingClientRect().width / 2)
-    console.log(this.props);
 }
 
 

@@ -24,7 +24,7 @@ export class CurrencyProvider extends React.Component {
     ]);
 
     const { currencies } = await client.post(getCurrencies);
-    console.log(currencies[0]);
+
     this.setState({ currencies: currencies, selectedCurrency: currencies[0] });
   }
 

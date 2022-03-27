@@ -1,6 +1,10 @@
 import React from "react";
 import CartContext from "../../services/context/cartContext";
 import NavOption from "../Header/Header.styled";
+import cartIcn from "../../assets/icons/empty-cart.svg";
+import "./CartOption.css";
+import { Background } from "../../services/helpers/PopUpContainer.styled";
+import { CartOverlay } from "./CartOption.styled";
 
 class CartOption extends React.Component {
   static contextType = CartContext;
@@ -8,15 +12,15 @@ class CartOption extends React.Component {
   constructor() {
     super();
     this.state = { optionPosition: null, popUpDisplay: false };
-    this.getOptionPositionHandler = this.getOptionPositionHandler.bind(this)
-    this.popUpHandler = this.popUpHandler.bind(this)
+    this.getOptionPositionHandler = this.getOptionPositionHandler.bind(this);
+    this.popUpHandler = this.popUpHandler.bind(this);
   }
 
-  getOptionPositionHandler(position){
-    this.setState({...this.state, optionPosition:position})  
+  getOptionPositionHandler(position) {
+    this.setState({ ...this.state, optionPosition: position });
   }
-  popUpHandler(){
-    this.setState({...this.state,popUpDisplay:!this.state.popUpDisplay})
+  popUpHandler() {
+    this.setState({ ...this.state, popUpDisplay: !this.state.popUpDisplay });
   }
 
   // grab context Cart, show cartTotal
@@ -24,18 +28,36 @@ class CartOption extends React.Component {
 
   render() {
     return (
-      <div className="CartOption">
-        <NavOption getMiddlePosition={this.getOptionPositionHandler} clickHandler={this.popUpHandler}>
-          <img
-            src={arrowDown}
-            alt="cart icon"
-            className={`cart-icn`}
-          />
+      <section className="CartOption">
         
-          {this.context.selectedCurrency.symbol}
+        <NavOption
+          getMiddlePosition={this.getOptionPositionHandler}
+          clickHandler={this.popUpHandler}
+        >
+          <div className={`cart-icn-container ${this.state.popUpDisplay && 'active-option'}`}>
+            <img src={cartIcn} alt="cart icon" className={`cart-icn`} />
 
+            {this.context.cartTotal > 0 && (
+              <p className="cart-total">{this.context.cartTotal}</p>
+            )}
+          
+          </div>
         </NavOption>
-      </div>
+
+        {this.state.popUpDisplay && (
+          <Background
+            op={.2}
+            onClick={() =>
+              this.setState({ ...this.state, popUpDisplay: false })
+            }
+          >
+            
+            <CartOverlay x={this.state.optionPosition}>
+              Hola
+            </CartOverlay>
+          </Background>
+        )}
+      </section>
     );
   }
 }
