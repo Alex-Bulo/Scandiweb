@@ -11,5 +11,5 @@ export const Background = styled.div`
   background-color: rgba(0, 0, 0, ${props => props.op});
   
   opacity:0;
-  animation: fade-in .5s ease-in-out .2s forwards;
+  animation: fade-in .3s ease-in-out .1s forwards;
 `;
