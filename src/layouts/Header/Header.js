@@ -4,6 +4,8 @@ import CartSnippet from "../CartSnippet/CartSnippet";
 import CurrencySelector from "../CurrencySelector/CurrencySelector";
 import NavBar from "../NavBar/NavBar";
 import './Header.css'
+import logo from '../../assets/images/a-logo.png'
+import { Link } from "react-router-dom";
 
 class Header extends React.Component {
     
@@ -32,9 +34,10 @@ class Header extends React.Component {
     return (
       <header className="Header">
         {this.state.menuCategories && <NavBar categories={this.state.menuCategories} />}
-        
+        <Link to='/plp/all'><img src={logo} alt='Logo for coding challange for Scandiweb'/></Link>
         <CurrencySelector />
         <CartSnippet />
+        
       </header>
     );
   }
