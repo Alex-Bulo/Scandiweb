@@ -4,7 +4,6 @@
          url('../fonts/Raleway-VariableFont.ttf') format('ttf');
 }
 
-
 *{
     margin: 0;
     padding: 0;
@@ -20,6 +19,11 @@
     --bkg-color: rgba(255, 255, 255, 1);
     --accent-bkg-color:rgba(94, 206, 123, 1);
     --selected-bkg-color:rgba(0, 0, 0, 1);
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
 }
 
 .cta-primary{
@@ -69,4 +73,11 @@
 }
 .disabled{
     color: var(--disabled-font-color) !important;
+}
+.active{
+    color: var(--secondary-font-color);
+    font-weight: 600;
+    font-size: 16px;
+
+    border-bottom: 2px solid var(--secondary-font-color);
 }

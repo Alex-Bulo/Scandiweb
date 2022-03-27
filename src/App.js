@@ -13,7 +13,7 @@ class App extends React.Component {
         
         <Routes>
 
-          <Route exact path='/' element={<Navigate to='plp'/>}/> 
+          <Route exact path='/' element={<Navigate to='plp/all'/>}/> 
 
           <Route path="plp" element={<CategoryPage/>} />
           <Route path="plp/:id" element={<CategoryPage/>} />

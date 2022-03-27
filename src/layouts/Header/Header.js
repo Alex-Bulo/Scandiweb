@@ -3,12 +3,13 @@ import React from "react";
 import CartSnippet from "../CartSnippet/CartSnippet";
 import CurrencySelector from "../CurrencySelector/CurrencySelector";
 import NavBar from "../NavBar/NavBar";
+import './Header.css'
 
 class Header extends React.Component {
     
     constructor(){
         super()
-        this.state = {menuCategories:[]}
+        this.state = {menuCategories:null}
     }
   
     async componentDidMount(){
@@ -22,15 +23,15 @@ class Header extends React.Component {
     this.setState({menuCategories:categories}) 
 
     }
-   // fetch categories
-  // render NavBar categories as props
+
+
   // render CurrencySelector
   // render CartSnippet
 
   render() {
     return (
       <header className="Header">
-        <NavBar categories={this.state.menuCategories} />
+        {this.state.menuCategories && <NavBar categories={this.state.menuCategories} />}
         
         <CurrencySelector />
         <CartSnippet />
