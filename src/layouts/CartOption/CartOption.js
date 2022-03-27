@@ -1,26 +1,43 @@
 import React from "react";
 import CartContext from "../../services/context/cartContext";
+import NavOption from "../Header/Header.styled";
 
 class CartOption extends React.Component {
   static contextType = CartContext;
-// grab context Cart, show cartTotal
-// render PopUp
 
+  constructor() {
+    super();
+    this.state = { optionPosition: null, popUpDisplay: false };
+    this.getOptionPositionHandler = this.getOptionPositionHandler.bind(this)
+    this.popUpHandler = this.popUpHandler.bind(this)
+  }
+
+  getOptionPositionHandler(position){
+    this.setState({...this.state, optionPosition:position})  
+  }
+  popUpHandler(){
+    this.setState({...this.state,popUpDisplay:!this.state.popUpDisplay})
+  }
+
+  // grab context Cart, show cartTotal
+  // render PopUp
 
   render() {
-    
     return (
       <div className="CartOption">
-          <p onClick={()=>this.context.addNewCartItem( {id:3,qty:2}) } >add 3</p>
-          <p onClick={()=>this.context.addNewCartItem( {id:1,qty:1}) } >add 1</p>
+        <NavOption getMiddlePosition={this.getOptionPositionHandler} clickHandler={this.popUpHandler}>
+          <img
+            src={arrowDown}
+            alt="cart icon"
+            className={`cart-icn`}
+          />
+        
+          {this.context.selectedCurrency.symbol}
 
-          <p onClick={()=>this.context.deleteCartItem(1)}>delete</p>
-          
-          <p onClick={()=>console.log(this.context)}>orint</p>
+        </NavOption>
       </div>
     );
   }
 }
 
 export default CartOption;
-

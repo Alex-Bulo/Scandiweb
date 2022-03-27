@@ -17,7 +17,6 @@ class CurrencyOption extends React.Component {
   }
 
   
-
   getOptionPositionHandler(position){
     this.setState({...this.state, optionPosition:position})  
   }
