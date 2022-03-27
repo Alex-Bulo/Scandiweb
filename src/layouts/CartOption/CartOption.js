@@ -1,7 +1,7 @@
 import React from "react";
 
 class CartOption extends React.Component {
-    
+  // static contextType = CartContext;
 // grab context Cart, show cartTotal
 // render PopUp
 
@@ -17,3 +17,4 @@ class CartOption extends React.Component {
 }
 
 export default CartOption;
+
