@@ -14,3 +14,11 @@
     margin: 10px;
     /* overflow: hidden; */
 }
+
+.preview-title{
+    color:var(--primary-font-color);
+    font-weight: 300;
+    font-size: 18px;
+
+    margin-left: 10px;
+}

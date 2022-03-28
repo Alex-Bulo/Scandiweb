@@ -22,8 +22,8 @@ class ProductPreview extends React.Component {
             : console.log("No hay click")
         }
       >
-        <Carrousel images={this.props.product.gallery} name={this.props.product.name} current={2}/>
-        {this.props.product.brand} - {this.props.product.name}
+        <Carrousel images={this.props.product.gallery} name={this.props.product.name} current={0}/>
+        <h2 className="preview-title">{this.props.product.brand} - {this.props.product.name}</h2>
       </article>
     );
   }

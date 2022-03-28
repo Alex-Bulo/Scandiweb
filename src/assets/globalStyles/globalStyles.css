@@ -48,11 +48,7 @@ a{
     }
 }
 
-.preview-title{
-    color:var(--primary-font-color);
-    font-weight: 300;
-    font-size: 16px;
-}
+
 .price{
     color:var(--primary-font-color);
     font-weight: 500;
