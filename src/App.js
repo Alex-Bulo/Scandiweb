@@ -15,8 +15,9 @@ class App extends React.Component {
 
           <Route exact path='/' element={<Navigate to='plp/all'/>}/> 
 
-          <Route path="plp" element={<CategoryPage/>} />
-          <Route path="plp/:id" element={<CategoryPage/>} />
+          <Route path="plp" element={<Navigate to='plp/all'/>} />
+          <Route path="plp/:id" element={<CategoryPage />} />
+          {/* <Route path="plp/:id" render={(props)=><CategoryPage {...props}/>} /> */}
         
 
         </Routes>
