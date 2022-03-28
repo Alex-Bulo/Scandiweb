@@ -1,6 +1,9 @@
 import React from "react";
-import { addNavigationTo, getProductsByCategory } from "../../services/helpers/helpers";
-
+import {
+  addNavigationTo,
+  getProductsByCategory,
+} from "../../services/helpers/helpers";
+import './CategoryPage.css'
 class CategoryPage extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +16,6 @@ class CategoryPage extends React.Component {
     const newProducts = await getProductsByCategory(id);
 
     this.setState({ products: newProducts, category: id });
-    console.log(this.state);
   }
 
   async componentDidUpdate() {
@@ -21,13 +23,23 @@ class CategoryPage extends React.Component {
     if (this.state.category !== id) {
       const newProducts = await getProductsByCategory(id);
 
-      this.setState({ products: newProducts });
-      console.log(this.state);
+      this.setState({ products: newProducts, category:id });
+
     }
   }
 
   render() {
-    return <div className="CategoryPage">Si</div>;
+    return (
+        this.state.products && 
+      <main className="CategoryPage">
+        
+        <h1 className="category-title">{this.state.category}</h1>
+        <section className="products-container">
+            {this.state.products.map(product => <article>{product.name}</article>)}
+        </section>
+      
+      </main>
+    );
   }
 }
 
