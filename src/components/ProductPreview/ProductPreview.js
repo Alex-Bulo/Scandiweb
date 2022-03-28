@@ -1,4 +1,5 @@
 import React from "react";
+import Carrousel from "../Carrousel/Carrousel";
 import "./ProductPreview.css";
 
 class ProductPreview extends React.Component {
@@ -21,6 +22,7 @@ class ProductPreview extends React.Component {
             : console.log("No hay click")
         }
       >
+        <Carrousel images={this.props.product.gallery} name={this.props.product.name} current={2}/>
         {this.props.product.brand} - {this.props.product.name}
       </article>
     );

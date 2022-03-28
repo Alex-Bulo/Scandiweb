@@ -6,3 +6,10 @@
     height: 444px;
     border: 1px solid #c2c2c2;
 }
+
+.ProductPreview section{
+    width: 50%;
+    height: 50%;
+
+    /* overflow: hidden; */
+}
