@@ -1,6 +1,4 @@
-.CategoryPage{
 
-}
 .category-title{
     margin: 80px 5%;
     color: var(--primary-font-color);
@@ -9,4 +7,14 @@
     font-weight: 400;
     
     text-transform: capitalize;
+}
+
+.products-container{
+    margin: 40px 5%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
 }

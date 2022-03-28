@@ -21,7 +21,7 @@ export const getProductsByCategory = async (id) => {
     .addField("name")
     .addField(
       new Field("products", true)
-        .addFieldList(["name", "inStock", "brand", "gallery"])
+        .addFieldList(["id","name", "inStock", "brand", "gallery"])
         .addField(
           new Field("attributes", true)
             .addFieldList(["id", "name", "type"])

@@ -1,9 +1,7 @@
 import React from "react";
-import {
-  addNavigationTo,
-  getProductsByCategory,
-} from "../../services/helpers/helpers";
-import './CategoryPage.css'
+import { addNavigationTo, getProductsByCategory } from "../../services/helpers/helpers";
+import ProductPreview from "../../components/ProductPreview/ProductPreview";
+import "./CategoryPage.css";
 class CategoryPage extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +12,7 @@ class CategoryPage extends React.Component {
     const id = this.props.params.id || "all";
 
     const newProducts = await getProductsByCategory(id);
-
+console.log(newProducts);
     this.setState({ products: newProducts, category: id });
   }
 
@@ -23,22 +21,25 @@ class CategoryPage extends React.Component {
     if (this.state.category !== id) {
       const newProducts = await getProductsByCategory(id);
 
-      this.setState({ products: newProducts, category:id });
-
+      this.setState({ products: newProducts, category: id });
     }
   }
 
   render() {
     return (
-        this.state.products && 
-      <main className="CategoryPage">
+      this.state.products && (
+        <main className="CategoryPage">
+
+          <h1 className="category-title">{this.state.category}</h1>
+          
+          <section className="products-container">
+            {this.state.products.map((product) => (
+              <ProductPreview key={product.id} product={product} />
+            ))}
+          </section>
         
-        <h1 className="category-title">{this.state.category}</h1>
-        <section className="products-container">
-            {this.state.products.map(product => <article>{product.name}</article>)}
-        </section>
-      
-      </main>
+        </main>
+      )
     );
   }
 }
