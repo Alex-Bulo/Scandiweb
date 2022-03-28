@@ -32,8 +32,6 @@ class Carrousel extends React.Component {
     const currentImage = this.state.current;
     const lastImage = this.props.images.length -1;
 
-    console.log('CURRENT ', currentImage, 'LAST ', lastImage);
-
     if (currentImage >= lastImage) {
       this.setState({ current: 0 });
     } else {
