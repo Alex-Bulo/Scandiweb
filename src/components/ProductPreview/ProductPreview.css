@@ -8,8 +8,9 @@
 }
 
 .ProductPreview section{
-    width: 50%;
-    height: 50%;
+    width: 95%;
+    height: 80%;
 
+    margin: 10px;
     /* overflow: hidden; */
 }

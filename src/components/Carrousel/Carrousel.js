@@ -68,7 +68,7 @@ class Carrousel extends React.Component {
 
           
           {!this.props.images[this.state.current] && (
-            <article className="Carrousel">
+            <article className="Carrousel no-image">
               <p>No image available</p>
             </article>
           )}

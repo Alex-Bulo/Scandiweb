@@ -2,7 +2,7 @@
     margin:auto;
 }
 .Carrousel{
-    margin: 5px;
+    /* margin: 5px; */
     width: 100%;
     height: 100%;
 
@@ -10,6 +10,8 @@
     position: relative;
     display: flex;
     align-items: center;
+    /* border: 1px solid black; */
+
 }
 .carrousel-image{
     width: 100%;
@@ -44,4 +46,29 @@
     background-color: rgba(0, 0, 0, .2);
 
     transition: all .6s ease-in-out;
+}
+
+.no-image{
+    justify-content: center;
+    align-items: center;
+    
+    border: 1px solid black;
+    font-weight: 500;
+}
+
+.no-image::before,
+.no-image::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0,0,0,.4);
+}
+
+.no-image::before {
+    transform: rotate(45deg);
+}
+
+.no-image::after {
+    transform: rotate(-45deg);
 }
