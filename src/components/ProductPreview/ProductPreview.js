@@ -1,30 +1,41 @@
 import React from "react";
+import CurrencyContext from "../../services/context/currencyContext";
 import Carrousel from "../Carrousel/Carrousel";
+import Price from "../Price/Price";
 import "./ProductPreview.css";
 
 class ProductPreview extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { products: null, category: null };
-  }
-
-  componentDidMount() {
-    //   const {id, brand, name} = this.props.product
-  }
+  static contextType = CurrencyContext;
 
   render() {
     return (
-      <article
-        className="ProductPreview"
-        onClick={() =>
-          this.props.product.inStock
-            ? console.log("Hay Click")
-            : console.log("No hay click")
-        }
-      >
-        <Carrousel images={this.props.product.gallery} name={this.props.product.name} current={0}/>
-        <h2 className="preview-title">{this.props.product.brand} - {this.props.product.name}</h2>
-      </article>
+      this.context.selectedCurrency && (
+        <article
+          className="ProductPreview"
+          onClick={() =>
+            this.props.product.inStock
+              ? console.log("Hay Click")
+              : console.log("No hay click")
+          }
+        >
+          <Carrousel
+            images={this.props.product.gallery}
+            name={this.props.product.name}
+            current={0}
+          />
+
+          <section className="preview-content">
+            <h2 className="preview-title">
+              {this.props.product.brand} - {this.props.product.name}
+            </h2>
+            <Price
+              prices={this.props.product.prices}
+              qty={1}
+              currency={this.context.selectedCurrency.label}
+            />
+          </section>
+        </article>
+      )
     );
   }
 }

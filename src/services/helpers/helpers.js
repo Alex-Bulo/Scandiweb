@@ -1,10 +1,6 @@
 import { client, Query, Field } from "@tilework/opus";
 import { useNavigate, useParams } from "react-router-dom";
 
-export const popUpHandler = (state) => {
-  state({ ...this.state, popUpDisplay: !this.state.popUpDisplay });
-};
-
 // v6 React Route components don't provide location or match props anymore
 // creating just one functional component to inject url information as props
 export const addNavigationTo = (Component) => {
@@ -45,3 +41,12 @@ export const getProductsByCategory = async (id) => {
 
   return category.products;
 };
+
+export const calculatePrice = (prices, qty, currency) => {
+    
+  const priceToUse = prices.filter(price => price.currency.label === currency)[0]
+
+  return `${currency} ${qty * Number(priceToUse.amount)}`
+
+
+}
