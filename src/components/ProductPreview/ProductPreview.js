@@ -6,30 +6,50 @@ import "./ProductPreview.css";
 
 class ProductPreview extends React.Component {
   static contextType = CurrencyContext;
+  constructor(props) {
+    super(props);
+    this.state = { active: null, qty: null, selectedAttribute: null };
+    this.enableProductHandler = this.enableProductHandler.bind(this)
+  }
+
+  componentDidMount(){
+    this.setState({active:false, qty:1, selectedAttribute:0})
+
+  }
+
+  enableProductHandler (){
+    this.props.product.inStock && this.setState({...this.state, active:true})
+  }
+
 
 
   render() {
-    const {inStock} = this.props.product
+    
+    const { inStock, name, brand, prices, gallery } = this.props.product;
+    const {active, qty, selectedAttribute} = this.state
+
     return (
       this.context.selectedCurrency && (
         <article
-          className={`ProductPreview ${!inStock ? 'without-stock' : ''}`}
-          onClick={() => inStock ? console.log('si') : console.log('No') }
+          className={`ProductPreview ${!inStock ? "without-stock" : ""} ${active ? 'enabled-product':''}`}
+          onClick={()=>this.enableProductHandler()}
+          onMouseEnter={()=>this.enableProductHandler()}
+          onMouseLeave={()=>this.setState({...this.state,active:false})}
         >
           <Carrousel
             inStock={inStock}
-            images={this.props.product.gallery}
-            name={this.props.product.name}
+            images={gallery}
+            name={name}
             current={0}
           />
 
           <section className="preview-content">
             <h2 className="preview-title">
-              {this.props.product.brand} - {this.props.product.name}
+              {brand} - {name}
             </h2>
             <Price
-              prices={this.props.product.prices}
-              qty={1}
+              prices={prices}
+              qty={qty}
               currency={this.context.selectedCurrency.label}
             />
           </section>
