@@ -23,9 +23,6 @@ class CartOption extends React.Component {
     this.setState({ ...this.state, popUpDisplay: !this.state.popUpDisplay });
   }
 
-  // grab context Cart, show cartTotal
-  // render PopUp
-
   render() {
     return (
       <section className="CartOption">
