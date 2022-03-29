@@ -40,13 +40,16 @@ class Carrousel extends React.Component {
   }
 
   render() {
+    const{images, name, inStock} = this.props
+    
     return (
       this.state.current >= 0 && (
         
         <section className="carrousel-container">
           
-          {this.props.images[this.state.current] && (
-            <article className="Carrousel">
+          {images[this.state.current] && (
+            <article className={`Carrousel ${!inStock ? 'img-no-stock':''}`}>
+              {!inStock && <p className="stock-msg">OUT OF STOCK</p>}
               <div className="moving-icn moving-prev" onClick={this.previousPicHandler}>
                 <i>{"<"}</i>
               </div>

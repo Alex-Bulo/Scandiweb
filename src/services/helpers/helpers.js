@@ -46,7 +46,9 @@ export const calculatePrice = (prices, qty, currency) => {
     
   const priceToUse = prices.filter(price => price.currency.label === currency)[0]
 
-  return `${currency} ${qty * Number(priceToUse.amount)}`
+  const myNumber = (qty * Number(priceToUse.amount)).toLocaleString()
+
+  return `${currency} ${myNumber}`
 
 
 }

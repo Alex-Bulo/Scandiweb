@@ -7,18 +7,17 @@ import "./ProductPreview.css";
 class ProductPreview extends React.Component {
   static contextType = CurrencyContext;
 
+
   render() {
+    const {inStock} = this.props.product
     return (
       this.context.selectedCurrency && (
         <article
-          className="ProductPreview"
-          onClick={() =>
-            this.props.product.inStock
-              ? console.log("Hay Click")
-              : console.log("No hay click")
-          }
+          className={`ProductPreview ${!inStock ? 'without-stock' : ''}`}
+          onClick={() => inStock ? console.log('si') : console.log('No') }
         >
           <Carrousel
+            inStock={inStock}
             images={this.props.product.gallery}
             name={this.props.product.name}
             current={0}

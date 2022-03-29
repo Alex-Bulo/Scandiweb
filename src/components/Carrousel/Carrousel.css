@@ -2,16 +2,15 @@
     margin:auto;
 }
 .Carrousel{
-    /* margin: 5px; */
     width: 100%;
     height: 100%;
 
-    overflow: hidden;
     position: relative;
+
+    overflow: hidden;
+
     display: flex;
     align-items: center;
-    /* border: 1px solid black; */
-
 }
 .carrousel-image{
     width: 100%;
@@ -46,6 +45,17 @@
     background-color: rgba(0, 0, 0, .2);
 
     transition: all .6s ease-in-out;
+}
+.stock-msg{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--disabled-font-color);
+}
+.img-no-stock{
+    opacity: .5;
 }
 
 .no-image{

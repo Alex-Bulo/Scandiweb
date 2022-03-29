@@ -1,5 +1,6 @@
 .Price{
-    color:var(--primary-font-color);
+    font-family: 'Raleway Medium';
+
     font-weight: 500;
     font-size: 18px;
 }

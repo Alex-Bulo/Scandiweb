@@ -1,7 +1,27 @@
 @font-face {
-    font-family: 'Raleway';
+    font-family: 'Raleway Light';
     src: local('Raleway'),
-         url('../fonts/Raleway-VariableFont.ttf') format('ttf');
+         url('../fonts/Raleway-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Raleway Regular';
+    src: local('Raleway'),
+         url('../fonts/Raleway-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Raleway Medium';
+    src: local('Raleway'),
+         url('../fonts/Raleway-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Raleway SemiBold';
+    src: local('Raleway'),
+         url('../fonts/Raleway-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Raleway Bold';
+    src: local('Raleway'),
+         url('../fonts/Raleway-Bold.ttf') format('truetype');
 }
 
 *{
@@ -9,7 +29,7 @@
     padding: 0;
     box-sizing: border-box;
 
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway Regular', sans-serif;
     font-size: 16px;
 
     --primary-font-color: rgba(29, 31, 34, 1);
@@ -49,11 +69,7 @@ a{
 }
 
 
-.price{
-    color:var(--primary-font-color);
-    font-weight: 500;
-    font-size: 18px;
-}
+
 .selected{
     background-color: var(--selected-bkg-color);
     color: var(--accent-font-color);
