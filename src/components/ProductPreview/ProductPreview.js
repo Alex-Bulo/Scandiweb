@@ -28,7 +28,9 @@ class ProductPreview extends React.Component {
     return (
       this.context.selectedCurrency && (
         <article
-          className={`ProductPreview ${!inStock ? "without-stock" : ""} ${active ? "enabled-product" : ""}`}
+          className={`ProductPreview ${!inStock ? "without-stock" : ""} ${
+            active ? "enabled-product" : ""
+          }`}
           onClick={() => this.enableProductHandler()}
           onMouseLeave={() => this.setState({ ...this.state, active: false })}
         >
@@ -40,7 +42,10 @@ class ProductPreview extends React.Component {
           />
 
           <section className="preview-content">
-            <h2 className="preview-title"> {brand} - {name} </h2>
+            <h2 className="preview-title">
+              {" "}
+              {brand} - {name}{" "}
+            </h2>
             <Price
               prices={prices}
               qty={qty}
@@ -49,9 +54,12 @@ class ProductPreview extends React.Component {
           </section>
 
           {active && (
-            <section>
+            <section
+              className="preview-choices"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div
-                className=" cta-primary add-cart-container"
+                className="cta-primary add-cart-container"
                 onClick={() => alert("hola")}
               >
                 <img
@@ -64,12 +72,12 @@ class ProductPreview extends React.Component {
                 style={{
                   width: "100%",
                   height: "55px",
-                  backgroundColor: "#000",
+                  backgroundColor: "GREEN",
                   boxShadow: "0px 4px 35px rgba(168, 172, 176, 0.19)",
                   zIndex: "8",
                 }}
               >
-                att
+                ATTRIBUTES
               </div>
               <div
                 style={{
@@ -80,7 +88,7 @@ class ProductPreview extends React.Component {
                   zIndex: "100",
                 }}
               >
-                ocounter
+                COUNTER
               </div>
             </section>
           )}
