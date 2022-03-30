@@ -1,12 +1,12 @@
 import React from "react";
-import CurrencyContext from "../../services/context/currencyContext";
+import CartContext from "../../services/context/cartContext";
 import Carrousel from "../Carrousel/Carrousel";
 import PriceContainer from "../Price/PriceContainer";
+import Attributes from "../Attributes/Attributes";
 import "./ProductPreview.css";
 import cartIcn from "../../assets/icons/white-cart.svg";
-import Attributes from "../Attributes/Attributes";
 class ProductPreview extends React.Component {
-  static contextType = CurrencyContext;
+  static contextType = CartContext;
   constructor(props) {
     super(props);
     this.state = { active: null, qty: null, selectedAttributes: null };
@@ -37,7 +37,6 @@ class ProductPreview extends React.Component {
     const { active, qty, selectedAttributes } = this.state;
 
     return (
-      this.context.selectedCurrency && (
         <article
           className={`ProductPreview ${!inStock ? "without-stock" : ""} ${
             active ? "enabled-product" : ""
@@ -95,7 +94,6 @@ class ProductPreview extends React.Component {
           )}
         </article>
       )
-    );
   }
 }
 

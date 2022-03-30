@@ -1,17 +1,14 @@
 import React from "react";
-import styledComponents from "styled-components";
 import { calculatePrice } from "../../services/helpers/helpers";
 import "./Price.css";
 
-
 class Price extends React.Component {
   render() {
-      const {prices, qty, currency} = this.props
-      const finalPrice = calculatePrice(prices, qty, currency)
-    return (
+    const { prices, qty, currency } = this.props;
+    const finalPrice = calculatePrice(prices, qty, currency);
 
-      <p className="Price">{finalPrice}</p>
-    );
+    return <p className="Price">{finalPrice}</p>;
+
   }
 }
 
