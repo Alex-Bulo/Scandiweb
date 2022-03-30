@@ -21,7 +21,6 @@
     font-family: 'Raleway Light';
     font-weight: 300;
     font-size: 18px;
-
 }
 
 .preview-content{
@@ -62,4 +61,12 @@
 }
 .add-cart-icon{
     width: 20px;
+}
+.preview-choices{
+    margin-top: 5px;
+    margin-left: 10px;
+
+    opacity: 0;
+    animation: fade-in .8s ease-in-out forwards;
+    animation-delay: .5s;
 }

@@ -4,6 +4,7 @@ import Carrousel from "../Carrousel/Carrousel";
 import Price from "../Price/Price";
 import "./ProductPreview.css";
 import cartIcn from "../../assets/icons/white-cart.svg";
+import Attributes from "../Attributes/Attributes";
 class ProductPreview extends React.Component {
   static contextType = CurrencyContext;
   constructor(props) {
@@ -13,7 +14,7 @@ class ProductPreview extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ active: false, qty: 1, selectedAttribute: 0 });
+    this.setState({ active: false, qty: 1, selectedAttribute: [] });
   }
 
   enableProductHandler() {
@@ -22,7 +23,8 @@ class ProductPreview extends React.Component {
   }
 
   render() {
-    const { inStock, name, brand, prices, gallery } = this.props.product;
+    const { inStock, name, brand, prices, gallery, attributes } =
+      this.props.product;
     const { active, qty, selectedAttribute } = this.state;
 
     return (
@@ -31,7 +33,8 @@ class ProductPreview extends React.Component {
           className={`ProductPreview ${!inStock ? "without-stock" : ""} ${
             active ? "enabled-product" : ""
           }`}
-          onClick={() => this.enableProductHandler()}
+          onMouseEnter={() => this.enableProductHandler()}
+          // onClick={() => alert("buy")}
           onMouseLeave={() => this.setState({ ...this.state, active: false })}
         >
           <Carrousel
@@ -54,43 +57,32 @@ class ProductPreview extends React.Component {
           </section>
 
           {active && (
-            <section
-              className="preview-choices"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div
-                className="cta-primary add-cart-container"
-                onClick={() => alert("hola")}
+            <>
+              <section
+                onClick={(e) => e.stopPropagation()}
               >
-                <img
-                  src={cartIcn}
-                  alt="Add to cart button"
-                  className="add-cart-icon"
-                />
-              </div>
-              <div
-                style={{
-                  width: "100%",
-                  height: "55px",
-                  backgroundColor: "GREEN",
-                  boxShadow: "0px 4px 35px rgba(168, 172, 176, 0.19)",
-                  zIndex: "8",
-                }}
-              >
-                ATTRIBUTES
-              </div>
-              <div
-                style={{
-                  width: "100%",
-                  height: "55px",
-                  backgroundColor: "red",
-                  boxShadow: "0px 4px 35px rgba(168, 172, 176, 0.19)",
-                  zIndex: "100",
-                }}
-              >
-                COUNTER
-              </div>
-            </section>
+                <div
+                  className="cta-primary add-cart-container"
+                  onClick={() => alert("hola")}
+                >
+                  <img
+                    src={cartIcn}
+                    alt="Add to cart button"
+                    className="add-cart-icon"
+                  />
+                </div>
+              </section>
+
+              <section className="preview-choices">
+                {attributes.map((attribute) => (
+                  <Attributes
+                    key={attribute.id}
+                    attribute={attribute}
+                    selectedAttributes={selectedAttribute}
+                  />
+                ))}
+              </section>
+            </>
           )}
         </article>
       )
