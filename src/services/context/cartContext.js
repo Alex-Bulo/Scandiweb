@@ -17,28 +17,32 @@ export class CartProvider extends React.Component {
     this.setState({ cartItems: [], cartTotal: 0 });
   }
 
-  newCartItemHandler(cartItem) {
-    console.log("adding", cartItem);
+  newCartItemHandler(newItem) {
+
+  //adds newItem to cart when cart is empty
     if (this.state.cartItems.length === 0) {
-      this.setState({ cartItems:[cartItem], cartTotal:cartItem.qty });
+      this.setState({ cartItems:[newItem], cartTotal:newItem.qty });
       return;
     }
 
     let newCart;
     const sameItemsInCart = this.state.cartItems.filter(
-      (item) => item.id === cartItem.id
+      (item) => item.id === newItem.id
     );
 
+  //adds newItem to cart when the product doesn't exist in cart (keeps the rest of the products in the cart)
     if (sameItemsInCart.length === 0) {
-      newCart = [...this.state.cartItems, cartItem];
+      newCart = [...this.state.cartItems, newItem];
     } else {
+  //the user is trying to add a product that exists in the cart already
       const restOfItemsInCart = this.state.cartItems.filter(
-        (item) => item.id !== cartItem.id );
+        (item) => item.id !== newItem.id );
         
-      // console.log('RESTOFITEMSCART LENGTH', restOfItemsInCart.length);
+//adds the rest of the products to our newCart
       newCart = restOfItemsInCart.length === 0 ? [] : [...restOfItemsInCart];
-      
-      const newAttributes = cartItem.selectedAttributes
+
+//attributes needed to be paired with the category (attributeID) and the attribute itself (items.id) since there are attributes with the same id (yes/no options)
+      const newAttributes = newItem.selectedAttributes
       .map((attribute) => {
         return { attID: attribute.attributeID, attItem: attribute.items.id };
         })
@@ -54,23 +58,27 @@ export class CartProvider extends React.Component {
           })
           .sort((a, b) => a.attId - b.attItem);
 
-        console.log('ATTRIBUTESIN CART', attributesInCart);
-        console.log('NEW ATTRIBUTES', newAttributes);
+//compares product's attributes in cart against new product's attributes and stores the result in an array
+//since we are in a loop and we only want to add the new product once and not on every single FALSE result 
         const isSameAttributes = compareAttributes(attributesInCart,newAttributes)
-        console.log(isSameAttributes);
         attributesCheck.push(isSameAttributes)
+
+//if it's the same product we only want to update its qty
         if(isSameAttributes){
-          sameItemInCart.qty = cartItem.qty
+          sameItemInCart.qty = newItem.qty
         }
         newCart.push(sameItemInCart)
 
       });
-      console.log(attributesCheck);
-      !attributesCheck.some(check=>check===true) && newCart.push(cartItem)
+
+//we add the newProduct only when NONE of our in-cart products had the same attributes
+      !attributesCheck.some(check=>check===true) && newCart.push(newItem)
+
     }
-    console.log(newCart);
+
     const newTotal = newCart.reduce((prev, curr) => prev + curr.qty, 0);
     this.setState({ cartItems: newCart, cartTotal: newTotal });
+
   }
 
   deleteCartItemHandler(cartItemId) {
