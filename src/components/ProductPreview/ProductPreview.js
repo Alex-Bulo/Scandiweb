@@ -31,10 +31,11 @@ class ProductPreview extends React.Component {
   }
 
   addToCartHandler(){
-    const isCorrect = validateNewCartItem(this.props.product, this.state.qty, this.state.selectedAttributes)
+    console.log('LAST CART ', this.context.cartItems);
+    const newCartItem = validateNewCartItem(this.props.product, this.state.qty, this.state.selectedAttributes)
     
-    if(isCorrect){
-      console.log('OK 2');
+    if(newCartItem){
+      this.context.addNewCartItem(newCartItem)
     }else{
       this.setState({...this.state,errors:true})
 

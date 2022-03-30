@@ -53,8 +53,8 @@ export const calculatePrice = (prices, qty, currency) => {
 };
 
 export const validateNewCartItem = (product, qty, selectedAttributes) => {
-  if(!qty){
-    return false
+  if (!qty) {
+    return false;
   }
 
   const newCartItem = {
@@ -70,17 +70,18 @@ export const validateNewCartItem = (product, qty, selectedAttributes) => {
     .sort((a, b) => a - b);
 
   if (attributesCategories.length !== newAttributes.length) {
-    console.log("NOT OK");
     return false;
+  
   } else {
+
     for (let i = 0; i <= attributesCategories.length; i++) {
       if (newAttributes[i] !== attributesCategories[i]) {
-        console.log("NOT OK");
         return false;
       }
     }
+
   }
 
   console.log("OK");
-  return true;
+  return newCartItem;
 };

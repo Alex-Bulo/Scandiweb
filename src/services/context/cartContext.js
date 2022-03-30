@@ -11,7 +11,6 @@ export class CartProvider extends React.Component {
     this.state = { cartItems: [], cartTotal: null };
     this.newCartItemHandler = this.newCartItemHandler.bind(this);
     this.deleteCartItemHandler = this.deleteCartItemHandler.bind(this);
-    this.pricesByCurrencyHandler = this.pricesByCurrencyHandler.bind(this);
   }
 
   componentDidMount() {
@@ -19,41 +18,50 @@ export class CartProvider extends React.Component {
   }
 
   newCartItemHandler(cartItem) {
-      console.log('adding', cartItem);
-      validateNewCartItem(cartItem)
-    // const newCart = [...this.state.cartItems, cartItem];
-    // const newTotal = newCart.reduce((prev, curr) => prev + curr.qty, 0);
+    console.log("adding", cartItem);
+    let newCart;
+    if (this.state.cartItems.length === 0) {
+      newCart = [...this.state.cartItems, cartItem];
+    } else {
+      // const restOfProducts = this.state.cartItems.filter(
+      //   (item) => item.id !== cartItem.id
+      // );
+      // const sameProducts = this.state.cartItems.filter(
+      //   (item) => item.id === cartItem.id
+      // );
+      // console.log("SAMEPRODUCTS ", sameProducts);
 
-    // this.setState({ cartItems: newCart, cartTotal: newTotal });
+      // const newAttributes = cartItem.selectedAttributes.map((attribute) => {
+      //   return {
+      //     productID: cartItem.id,
+      //     id: attribute.items.id,
+      //     attributeID: attribute.attributeID,
+      //   };
+      // });
+      // console.log("NEWATTRIBUTES ", newAttributes);
+
+      // const sameAttribute = sameProducts.map((product) =>
+      //   product.selectedAttributes.map((attribute) => {
+      //     return { productID:product.id, id: attribute.items.id, attributeID: attribute.attributeID };
+      //   })
+      // ).flat().sort((a,b)=>a-b)
+      // console.log("SAMEATTRIBUTE ", sameAttribute);
+      
+      newCart = [...this.state.cartItems, cartItem];
+    }
+
+    const newTotal = newCart.reduce((prev, curr) => prev + curr.qty, 0);
+    this.setState({ cartItems: newCart, cartTotal: newTotal });
   }
 
   deleteCartItemHandler(cartItemId) {
-      console.log('deleting ', cartItemId);
-    const newCart = this.state.cartItems.filter((item) => item.id !== cartItemId);
+    console.log("deleting ", cartItemId);
+    const newCart = this.state.cartItems.filter(
+      (item) => item.id !== cartItemId
+    );
     const newTotal = newCart.reduce((prev, curr) => prev + curr.qty, 0);
 
     this.setState({ cartItems: newCart, cartTotal: newTotal });
-
-  }
-
-  pricesByCurrencyHandler(currency) {
-    if (this.state.cartItems.length > 0) {
-      const newCartItems = this.state.cartItems.map((item) => {
-        const newPrice = item.prices.filter(
-          (price) => price.currency.label === currency
-        )[0];
-
-        return {
-          ...item,
-          price: {
-            amount: newPrice.amount * item.qty,
-            currency: newPrice.currency,
-          },
-        };
-      });
-
-      this.setState({ ...this.state, cartItems: newCartItems });
-    }
   }
 
   render() {
@@ -64,7 +72,6 @@ export class CartProvider extends React.Component {
           cartTotal: this.state.cartTotal,
           addNewCartItem: this.newCartItemHandler,
           deleteCartItem: this.deleteCartItemHandler,
-          updatePricesByCurrency: this.pricesByCurrencyHandler,
         }}
       >
         {this.props.children}
