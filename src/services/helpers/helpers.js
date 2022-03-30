@@ -42,14 +42,20 @@ export const getProductsByCategory = async (id) => {
   return category.products;
 };
 
-export const calculatePrice = (prices, qty, currency) => {
-  const priceToUse = prices.filter(
-    (price) => price.currency.label === currency
-  )[0];
+export const calculatePrice = (productInfo, currency) => {
 
-  const myNumber = (qty * Number(priceToUse.amount)).toLocaleString();
+  const totalAmount = productInfo.reduce((total,product) => {
+    console.log(product);
+    const priceToUse = product.prices.filter(
+      (price) => price.currency.label === currency
+    )[0]
+      
+    const calculatedPrice = (product.qty * Number(priceToUse.amount));
+    
+    return calculatedPrice + total
+  },0)
 
-  return `${currency} ${myNumber}`;
+  return `${currency} ${totalAmount.toLocaleString()}`;
 };
 
 export const validateNewCartItem = (product, qty, selectedAttributes) => {
@@ -87,7 +93,7 @@ export const validateNewCartItem = (product, qty, selectedAttributes) => {
 export const compareAttributes = (arrayA,arrayB)=>{
   
   for (let i = 0; i < arrayA.length; i++) {
-    console.log('MYHELPER',arrayA[i]);
+
     if ( arrayA[i].attID === arrayB[i].attID && arrayA[i].attItem === arrayB[i].attItem) {
       return true;
     }

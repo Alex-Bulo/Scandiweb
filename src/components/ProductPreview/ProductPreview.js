@@ -70,8 +70,7 @@ class ProductPreview extends React.Component {
               {brand} - {name}{" "}
             </h2>
             <PriceContainer
-              prices={prices}
-              qty={qty}
+              productInfo={[{prices, qty}]}
             />
           </section>
 

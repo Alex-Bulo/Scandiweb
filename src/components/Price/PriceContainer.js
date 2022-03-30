@@ -5,13 +5,12 @@ import "./Price.css";
 
 class PriceContainer extends React.Component {
   static contextType = CurrencyContext;
-
   render() {
+    console.log(this.props.productInfo);
     return (
       this.context.selectedCurrency && (
         <Price
-          prices={this.props.prices}
-          qty={this.props.qty}
+          productInfo={this.props.productInfo}
           currency={this.context.selectedCurrency.label}
         />
       )

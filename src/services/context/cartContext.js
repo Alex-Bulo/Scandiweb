@@ -18,7 +18,6 @@ export class CartProvider extends React.Component {
   }
 
   newCartItemHandler(newItem) {
-
   //adds newItem to cart when cart is empty
     if (this.state.cartItems.length === 0) {
       this.setState({ cartItems:[newItem], cartTotal:newItem.qty });
@@ -90,6 +89,8 @@ export class CartProvider extends React.Component {
 
     this.setState({ cartItems: newCart, cartTotal: newTotal });
   }
+
+
 
   render() {
     return (
