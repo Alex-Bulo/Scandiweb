@@ -29,7 +29,6 @@ export const AttributeOption = styled(OptionBox)`
   opacity:.5;
   
   
-  /* transition: opacity .5s ease-in-out */
   &:hover{
       opacity:.9;
       transition: opacity .5s ease-in-out

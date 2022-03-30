@@ -9,19 +9,23 @@ class Attributes extends React.Component {
   }
 
   onSelect(attribute) {
+      //adds the new attribute if no Attributes are selected
       if(this.props.selectedAttributes.length===0){
         
           this.props.selectHandler([attribute]);
           return
       } 
 
+    //checks the user choice's category so that no two attributes are chosen for the same category
     const hasAttribute =  this.props.selectedAttributes.filter(
         (selectedAttribute) =>
           selectedAttribute.attributeID === attribute.attributeID
       ).length > 0;
 
     let newSelectedAttributes;
-
+    
+    //Adds the choice if no attribute for that category has been chosen
+    //if so, replaces the choice with the user's new one
     if (!hasAttribute) {
       newSelectedAttributes = [...this.props.selectedAttributes, attribute]
 

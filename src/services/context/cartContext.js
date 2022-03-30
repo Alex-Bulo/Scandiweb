@@ -1,4 +1,5 @@
 import React from "react";
+import { validateNewCartItem } from "../helpers/helpers";
 
 const CartContext = React.createContext();
 
@@ -19,10 +20,11 @@ export class CartProvider extends React.Component {
 
   newCartItemHandler(cartItem) {
       console.log('adding', cartItem);
-    const newCart = [...this.state.cartItems, cartItem];
-    const newTotal = newCart.reduce((prev, curr) => prev + curr.qty, 0);
+      validateNewCartItem(cartItem)
+    // const newCart = [...this.state.cartItems, cartItem];
+    // const newTotal = newCart.reduce((prev, curr) => prev + curr.qty, 0);
 
-    this.setState({ cartItems: newCart, cartTotal: newTotal });
+    // this.setState({ cartItems: newCart, cartTotal: newTotal });
   }
 
   deleteCartItemHandler(cartItemId) {

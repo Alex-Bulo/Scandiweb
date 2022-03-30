@@ -49,6 +49,20 @@ export const calculatePrice = (prices, qty, currency) => {
   const myNumber = (qty * Number(priceToUse.amount)).toLocaleString()
 
   return `${currency} ${myNumber}`
+}
+
+export const validateNewCartItem = (cartItem){
+  
+  const attributesCategories = cartItem.attributes.map(attribute => attribute.id).sort((a,b)=>a-b)
+  const newAttributes = cartItem.selectedAttributes.map(attribute => attribute.id).sort((a,b)=>a-b)
+
+  if(attributesCategories === newAttributes){
+    console.log('OK');
+  }else{
+    console.log('NOT OK')
+  }
+
+
 
 
 }

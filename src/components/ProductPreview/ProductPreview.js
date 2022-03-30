@@ -28,6 +28,10 @@ class ProductPreview extends React.Component {
     this.setState({...this.state, selectedAttributes:newSelectedAttributes})
   }
 
+  addToCartHandler(){
+    
+  }
+
   render() {
     const { inStock, name, brand, prices, gallery, attributes } = this.props.product;
     const { active, qty, selectedAttributes } = this.state;
