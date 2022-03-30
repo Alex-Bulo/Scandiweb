@@ -1,5 +1,5 @@
 import React from "react";
-import { validateNewCartItem } from "../helpers/helpers";
+import { compareAttributes, validateNewCartItem } from "../helpers/helpers";
 
 const CartContext = React.createContext();
 
@@ -19,37 +19,56 @@ export class CartProvider extends React.Component {
 
   newCartItemHandler(cartItem) {
     console.log("adding", cartItem);
-    let newCart;
     if (this.state.cartItems.length === 0) {
-      newCart = [...this.state.cartItems, cartItem];
-    } else {
-      // const restOfProducts = this.state.cartItems.filter(
-      //   (item) => item.id !== cartItem.id
-      // );
-      // const sameProducts = this.state.cartItems.filter(
-      //   (item) => item.id === cartItem.id
-      // );
-      // console.log("SAMEPRODUCTS ", sameProducts);
-
-      // const newAttributes = cartItem.selectedAttributes.map((attribute) => {
-      //   return {
-      //     productID: cartItem.id,
-      //     id: attribute.items.id,
-      //     attributeID: attribute.attributeID,
-      //   };
-      // });
-      // console.log("NEWATTRIBUTES ", newAttributes);
-
-      // const sameAttribute = sameProducts.map((product) =>
-      //   product.selectedAttributes.map((attribute) => {
-      //     return { productID:product.id, id: attribute.items.id, attributeID: attribute.attributeID };
-      //   })
-      // ).flat().sort((a,b)=>a-b)
-      // console.log("SAMEATTRIBUTE ", sameAttribute);
-      
-      newCart = [...this.state.cartItems, cartItem];
+      this.setState({ cartItems:[cartItem], cartTotal:cartItem.qty });
+      return;
     }
 
+    let newCart;
+    const sameItemsInCart = this.state.cartItems.filter(
+      (item) => item.id === cartItem.id
+    );
+
+    if (sameItemsInCart.length === 0) {
+      newCart = [...this.state.cartItems, cartItem];
+    } else {
+      const restOfItemsInCart = this.state.cartItems.filter(
+        (item) => item.id !== cartItem.id );
+        
+      // console.log('RESTOFITEMSCART LENGTH', restOfItemsInCart.length);
+      newCart = restOfItemsInCart.length === 0 ? [] : [...restOfItemsInCart];
+      
+      const newAttributes = cartItem.selectedAttributes
+      .map((attribute) => {
+        return { attID: attribute.attributeID, attItem: attribute.items.id };
+        })
+        .sort((a, b) => a.attId - b.attItem);
+
+
+      let attributesCheck = []
+
+      sameItemsInCart.forEach((sameItemInCart) => {
+        const attributesInCart = sameItemInCart.selectedAttributes
+          .map((attribute) => {
+            return { attID: attribute.attributeID, attItem: attribute.items.id };
+          })
+          .sort((a, b) => a.attId - b.attItem);
+
+        console.log('ATTRIBUTESIN CART', attributesInCart);
+        console.log('NEW ATTRIBUTES', newAttributes);
+        const isSameAttributes = compareAttributes(attributesInCart,newAttributes)
+        console.log(isSameAttributes);
+        attributesCheck.push(isSameAttributes)
+        if(isSameAttributes){
+          sameItemInCart.qty = cartItem.qty
+        }
+        newCart.push(sameItemInCart)
+
+      });
+      console.log(attributesCheck);
+      !attributesCheck.some(check=>check===true) && newCart.push(cartItem)
+    }
+    console.log(newCart);
     const newTotal = newCart.reduce((prev, curr) => prev + curr.qty, 0);
     this.setState({ cartItems: newCart, cartTotal: newTotal });
   }

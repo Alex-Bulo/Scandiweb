@@ -8,7 +8,8 @@ class Attributes extends React.Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
-  onSelect(attribute) {
+  onSelect(e,attribute) {
+    e.stopPropagation()
       //adds the new attribute if no Attributes are selected
       if(this.props.selectedAttributes.length===0){
         
@@ -66,7 +67,7 @@ class Attributes extends React.Component {
                   key={item.id}
                   type={type}
                   value={item.value}
-                  onClick={() => alert("clicked Selected")}
+                  onClick={(e) => e.stopPropagation()}
                 >
                   {type !== "swatch" && <p>{item.displayValue}</p>}
                 </AttributeSelected>
@@ -77,8 +78,8 @@ class Attributes extends React.Component {
                   key={item.id}
                   type={type}
                   value={item.value}
-                  onClick={() =>
-                    this.onSelect({
+                  onClick={(e) =>
+                    this.onSelect(e,{
                       attributeID: id,
                       items: { id: item.id },
                     })

@@ -73,11 +73,9 @@ export const validateNewCartItem = (product, qty, selectedAttributes) => {
     return false;
   
   } else {
-
-    for (let i = 0; i <= attributesCategories.length; i++) {
-      if (newAttributes[i] !== attributesCategories[i]) {
-        return false;
-      }
+    const isSameArray = compareAttributes(attributesCategories,newAttributes) 
+    if(!isSameArray){
+      return false
     }
 
   }
@@ -85,3 +83,16 @@ export const validateNewCartItem = (product, qty, selectedAttributes) => {
   console.log("OK");
   return newCartItem;
 };
+
+export const compareAttributes = (arrayA,arrayB)=>{
+  
+  for (let i = 0; i < arrayA.length; i++) {
+    console.log('MYHELPER',arrayA[i]);
+    if ( arrayA[i].attID === arrayB[i].attID && arrayA[i].attItem === arrayB[i].attItem) {
+      return true;
+    }
+  
+  }
+  return false
+
+}
