@@ -39,6 +39,7 @@
     --bkg-color: rgba(255, 255, 255, 1);
     --accent-bkg-color:rgba(94, 206, 123, 1);
     --selected-bkg-color:rgba(0, 0, 0, 1);
+    --error-font-color:rgb(130, 0, 0);
 }
 
 a{
@@ -86,4 +87,9 @@ a{
     font-size: 16px;
 
     border-bottom: 2px solid var(--secondary-font-color);
+}
+.error{
+    color:var(--error-font-color);
+    font-weight: 400;
+    font-family: 'Raleway Medium';
 }

@@ -70,3 +70,8 @@
     animation: fade-in .8s ease-in-out forwards;
     animation-delay: .5s;
 }
+.plp-error{
+    position: absolute;
+    top: 60%;
+    right: 10px;
+}

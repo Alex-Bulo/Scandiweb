@@ -36,7 +36,7 @@ class ProductPreview extends React.Component {
     if(isCorrect){
       console.log('OK 2');
     }else{
-      console.log('Not OK 2');
+      this.setState({...this.state,errors:true})
 
     }
 
@@ -53,7 +53,7 @@ class ProductPreview extends React.Component {
           }`}
           onMouseEnter={() => this.enableProductHandler()}
           // onClick={() => alert("buy")}
-          onMouseLeave={() => this.setState({ ...this.state, active: false })}
+          onMouseLeave={() => this.setState({ ...this.state, active: false, errors:false })}
         >
           <Carrousel
             inStock={inStock}
@@ -100,6 +100,7 @@ class ProductPreview extends React.Component {
                   />
                 ))}
               </section>
+              {this.state.errors && <p className="error plp-error">Please select an option</p>}
             </>
           )}
         </article>
