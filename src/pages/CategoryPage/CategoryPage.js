@@ -12,7 +12,7 @@ class CategoryPage extends React.Component {
     const id = this.props.params.id || "all";
 
     const newProducts = await getProductsByCategory(id);
-console.log(newProducts);
+// console.log(newProducts);
     this.setState({ products: newProducts, category: id });
   }
 

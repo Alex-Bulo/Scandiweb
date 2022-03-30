@@ -5,7 +5,7 @@ import PriceContainer from "../Price/PriceContainer";
 import Attributes from "../Attributes/Attributes";
 import "./ProductPreview.css";
 import cartIcn from "../../assets/icons/white-cart.svg";
-import { validateNewCartItem } from "../../services/helpers/helpers";
+import { addNavigationTo, validateNewCartItem } from "../../services/helpers/helpers";
 class ProductPreview extends React.Component {
   static contextType = CartContext;
   constructor(props) {
@@ -31,6 +31,7 @@ class ProductPreview extends React.Component {
   }
 
   addToCartHandler(){
+    this.setState({...this.state,errors:false})
     console.log('LAST CART ', this.context.cartItems);
     const newCartItem = validateNewCartItem(this.props.product, this.state.qty, this.state.selectedAttributes)
     
@@ -44,7 +45,7 @@ class ProductPreview extends React.Component {
   }
 
   render() {
-    const { inStock, name, brand, prices, gallery, attributes } = this.props.product;
+    const { id, inStock, name, brand, prices, gallery, attributes } = this.props.product;
     const { active, qty, selectedAttributes } = this.state;
 
     return (
@@ -53,7 +54,7 @@ class ProductPreview extends React.Component {
             active ? "enabled-product" : ""
           }`}
           onMouseEnter={() => this.enableProductHandler()}
-          // onClick={() => alert("buy")}
+          onClick={() => this.props.navigate(`/pdp/${id}`)}
           onMouseLeave={() => this.setState({ ...this.state, active: false, errors:false })}
         >
           <Carrousel
@@ -109,4 +110,4 @@ class ProductPreview extends React.Component {
   }
 }
 
-export default ProductPreview;
+export default addNavigationTo(ProductPreview);
