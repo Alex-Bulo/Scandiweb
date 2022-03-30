@@ -1,7 +1,7 @@
 import React from "react";
 import CurrencyContext from "../../services/context/currencyContext";
 import Carrousel from "../Carrousel/Carrousel";
-import Price from "../Price/Price";
+import PriceContainer from "../Price/PriceContainer";
 import "./ProductPreview.css";
 import cartIcn from "../../assets/icons/white-cart.svg";
 import Attributes from "../Attributes/Attributes";
@@ -29,7 +29,7 @@ class ProductPreview extends React.Component {
   }
 
   addToCartHandler(){
-    
+
   }
 
   render() {
@@ -58,10 +58,9 @@ class ProductPreview extends React.Component {
               {" "}
               {brand} - {name}{" "}
             </h2>
-            <Price
+            <PriceContainer
               prices={prices}
               qty={qty}
-              currency={this.context.selectedCurrency.label}
             />
           </section>
 

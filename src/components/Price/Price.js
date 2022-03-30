@@ -1,6 +1,8 @@
 import React from "react";
+import styledComponents from "styled-components";
 import { calculatePrice } from "../../services/helpers/helpers";
 import "./Price.css";
+
 
 class Price extends React.Component {
   render() {
