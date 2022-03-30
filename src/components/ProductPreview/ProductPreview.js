@@ -5,18 +5,20 @@ import PriceContainer from "../Price/PriceContainer";
 import Attributes from "../Attributes/Attributes";
 import "./ProductPreview.css";
 import cartIcn from "../../assets/icons/white-cart.svg";
+import { validateNewCartItem } from "../../services/helpers/helpers";
 class ProductPreview extends React.Component {
   static contextType = CartContext;
   constructor(props) {
     super(props);
-    this.state = { active: null, qty: null, selectedAttributes: null };
+    this.state = { active: null, qty: null, selectedAttributes: null, errors:null };
     this.enableProductHandler = this.enableProductHandler.bind(this);
     this.selectAttributeHandler = this.selectAttributeHandler.bind(this);
+    this.addToCartHandler = this.addToCartHandler.bind(this)
   }
 
 
   componentDidMount() {
-    this.setState({ active: false, qty: 1, selectedAttributes: [] });
+    this.setState({ active: false, qty: 1, selectedAttributes: [], errors:false});
   }
 
   enableProductHandler() {
@@ -29,6 +31,14 @@ class ProductPreview extends React.Component {
   }
 
   addToCartHandler(){
+    const isCorrect = validateNewCartItem(this.props.product, this.state.qty, this.state.selectedAttributes)
+    
+    if(isCorrect){
+      console.log('OK 2');
+    }else{
+      console.log('Not OK 2');
+
+    }
 
   }
 
@@ -70,7 +80,7 @@ class ProductPreview extends React.Component {
               >
                 <div
                   className="cta-primary add-cart-container"
-                  onClick={() => alert("hola")}
+                  onClick={this.addToCartHandler}
                 >
                   <img
                     src={cartIcn}

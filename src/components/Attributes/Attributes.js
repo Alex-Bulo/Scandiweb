@@ -59,7 +59,7 @@ class Attributes extends React.Component {
                   selectedAttribute.attributeID === id &&
                   selectedAttribute.items.id === item.id
               ).length > 0;
-                console.log(this.props.attribute,isSelected,selectedAttributes)
+                
             if (isSelected) {
               return (
                 <AttributeSelected

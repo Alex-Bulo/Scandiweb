@@ -8,11 +8,13 @@ class PriceContainer extends React.Component {
 
   render() {
     return (
-      <Price
-        prices={this.props.prices}
-        qty={this.props.qty}
-        currency={this.context.selectedCurrency.label}
-      />
+      this.context.selectedCurrency && (
+        <Price
+          prices={this.props.prices}
+          qty={this.props.qty}
+          currency={this.context.selectedCurrency.label}
+        />
+      )
     );
   }
 }

@@ -17,7 +17,7 @@ export const getProductsByCategory = async (id) => {
     .addField("name")
     .addField(
       new Field("products", true)
-        .addFieldList(["id","name", "inStock", "brand", "gallery"])
+        .addFieldList(["id", "name", "inStock", "brand", "gallery"])
         .addField(
           new Field("attributes", true)
             .addFieldList(["id", "name", "type"])
@@ -43,26 +43,44 @@ export const getProductsByCategory = async (id) => {
 };
 
 export const calculatePrice = (prices, qty, currency) => {
-    
-  const priceToUse = prices.filter(price => price.currency.label === currency)[0]
+  const priceToUse = prices.filter(
+    (price) => price.currency.label === currency
+  )[0];
 
-  const myNumber = (qty * Number(priceToUse.amount)).toLocaleString()
+  const myNumber = (qty * Number(priceToUse.amount)).toLocaleString();
 
-  return `${currency} ${myNumber}`
-}
+  return `${currency} ${myNumber}`;
+};
 
-export const validateNewCartItem = (cartItem) => {
-  
-  const attributesCategories = cartItem.attributes.map(attribute => attribute.id).sort((a,b)=>a-b)
-  const newAttributes = cartItem.selectedAttributes.map(attribute => attribute.id).sort((a,b)=>a-b)
-
-  if(attributesCategories === newAttributes){
-    console.log('OK');
-  }else{
-    console.log('NOT OK')
+export const validateNewCartItem = (product, qty, selectedAttributes) => {
+  if(!qty){
+    return false
   }
 
+  const newCartItem = {
+    ...product,
+    qty,
+    selectedAttributes,
+  };
+  const attributesCategories = newCartItem.attributes
+    .map((attribute) => attribute.id)
+    .sort((a, b) => a - b);
+  const newAttributes = newCartItem.selectedAttributes
+    .map((attribute) => attribute.attributeID)
+    .sort((a, b) => a - b);
 
+  if (attributesCategories.length !== newAttributes.length) {
+    console.log("NOT OK");
+    return false;
+  } else {
+    for (let i = 0; i <= attributesCategories.length; i++) {
+      if (newAttributes[i] !== attributesCategories[i]) {
+        console.log("NOT OK");
+        return false;
+      }
+    }
+  }
 
-
-}
+  console.log("OK");
+  return true;
+};
