@@ -9,12 +9,14 @@ class ProductPreview extends React.Component {
   static contextType = CurrencyContext;
   constructor(props) {
     super(props);
-    this.state = { active: null, qty: null, selectedAttribute: null };
+    this.state = { active: null, qty: null, selectedAttributes: null };
     this.enableProductHandler = this.enableProductHandler.bind(this);
+    this.selectAttributeHandler = this.selectAttributeHandler.bind(this);
   }
 
+
   componentDidMount() {
-    this.setState({ active: false, qty: 1, selectedAttribute: [] });
+    this.setState({ active: false, qty: 1, selectedAttributes: [] });
   }
 
   enableProductHandler() {
@@ -22,10 +24,13 @@ class ProductPreview extends React.Component {
       this.setState({ ...this.state, active: !this.state.active });
   }
 
+  selectAttributeHandler(newSelectedAttributes){
+    this.setState({...this.state, selectedAttributes:newSelectedAttributes})
+  }
+
   render() {
-    const { inStock, name, brand, prices, gallery, attributes } =
-      this.props.product;
-    const { active, qty, selectedAttribute } = this.state;
+    const { inStock, name, brand, prices, gallery, attributes } = this.props.product;
+    const { active, qty, selectedAttributes } = this.state;
 
     return (
       this.context.selectedCurrency && (
@@ -78,7 +83,8 @@ class ProductPreview extends React.Component {
                   <Attributes
                     key={attribute.id}
                     attribute={attribute}
-                    selectedAttributes={selectedAttribute}
+                    selectedAttributes={selectedAttributes}
+                    selectHandler={this.selectAttributeHandler}
                   />
                 ))}
               </section>

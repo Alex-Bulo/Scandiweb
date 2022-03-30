@@ -10,6 +10,7 @@ const OptionBox = styled.div`
     display: flex;
     justify-content:center;
     align-items:center;
+    cursor: pointer;
     
     p{
         text-align:center;
@@ -25,7 +26,7 @@ export const AttributeOption = styled(OptionBox)`
   
   background-color: ${props => props.type==='swatch' ? props.value : 'var(--bkg-color)'};
   color: var(--primary-font-color);
-  opacity:.7;
+  opacity:.5;
   
   
   /* transition: opacity .5s ease-in-out */
@@ -36,8 +37,8 @@ export const AttributeOption = styled(OptionBox)`
     `;
 
 export const AttributeSelected = styled(OptionBox)`
-
-background-color: ${props => props.type==='swatch' ? props.value : 'var(--selected-bkg-color)'};
+  
+  background-color: ${props => props.type==='swatch' ? props.value : 'var(--selected-bkg-color)'};
   color: var(--accent-font-color);
 
   border: 2px solid var(--accent-bkg-color);  
