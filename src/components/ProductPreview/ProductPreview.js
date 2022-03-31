@@ -80,7 +80,7 @@ class ProductPreview extends React.Component {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div
-                  className="cta-primary add-cart-container"
+                  className="add-cart-container"
                   onClick={this.addToCartHandler}
                 >
                   <img

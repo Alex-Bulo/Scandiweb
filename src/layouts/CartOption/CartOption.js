@@ -49,7 +49,7 @@ class CartOption extends React.Component {
             }
           >
 
-            <CartOverlay x={this.state.optionPosition} />
+            <CartOverlay />
 
           </Background>
         )}

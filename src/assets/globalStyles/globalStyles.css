@@ -47,19 +47,6 @@ a{
     color:inherit;
 }
 
-.cta-primary{
-    background-color: var(--accent-bkg-color);
-    color:var(--accent-font-color);
-    font-weight: 600;
-    font-size: 16px;
-}
-.cta-secondary{
-    background-color: var(--bkg-color);
-    color:var(--primary-font-color);
-    border: 1px solid #000;
-    font-weight: 600;
-    font-size: 16px;
-}
 @keyframes fade-in {
     0%{
         opacity: 0;

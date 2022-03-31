@@ -10,7 +10,7 @@
 }
 
 .products-container{
-    margin: 40px 5%;
+    padding: 0 5%;
     width: 100%;
 
     display: flex;

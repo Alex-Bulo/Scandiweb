@@ -50,6 +50,11 @@
     top: 50%;
     right: 5%;
 
+    background-color: var(--accent-bkg-color);
+    color:var(--accent-font-color);
+    font-weight: 600;
+    font-size: 16px;
+
     display: flex;
     justify-content: center;
     align-items: center;

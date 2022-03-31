@@ -1,0 +1,6 @@
+.cart-overlay-title{
+    align-self: flex-start;
+    display: flex;
+
+    margin: 10px;
+}
