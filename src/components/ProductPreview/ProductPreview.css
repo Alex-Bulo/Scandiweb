@@ -81,3 +81,6 @@
     top: 60%;
     right: 10px;
 }
+.success-cart .add-cart-icon{
+    animation: new-item 1s ease-in-out;
+}

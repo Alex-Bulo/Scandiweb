@@ -81,7 +81,7 @@ class Attributes extends React.Component {
                   onClick={(e) =>
                     this.onSelect(e,{
                       attributeID: id,
-                      items: { id: item.id },
+                      items: { id: item.id, type:type },
                     })
                   }
                 >

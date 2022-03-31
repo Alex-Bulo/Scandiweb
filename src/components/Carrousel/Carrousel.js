@@ -56,7 +56,7 @@ class Carrousel extends React.Component {
               
               <img
                 src={this.props.images[this.state.current]}
-                alt={`${this.props.name}`}
+                alt={`${name}`}
                 className="carrousel-image"
               />
               

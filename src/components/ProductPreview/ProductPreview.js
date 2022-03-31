@@ -13,7 +13,8 @@ class ProductPreview extends React.Component {
     this.state = { active: null, qty: null, selectedAttributes: null, errors:null };
     this.enableProductHandler = this.enableProductHandler.bind(this);
     this.selectAttributeHandler = this.selectAttributeHandler.bind(this);
-    this.addToCartHandler = this.addToCartHandler.bind(this)
+    this.addToCartHandler = this.addToCartHandler.bind(this);
+    this.myProduct = React.createRef();
   }
 
 
@@ -22,11 +23,18 @@ class ProductPreview extends React.Component {
   }
 
   enableProductHandler() {
+    console.log(this.myProduct.current.classList.contains('success-cart'));
+    if(this.myProduct.current.classList.contains('success-cart')){
+      this.myProduct.current.classList.remove('success-cart')
+    }
     this.props.product.inStock &&
       this.setState({ ...this.state, active: !this.state.active });
   }
 
   selectAttributeHandler(newSelectedAttributes){
+    if(this.myProduct.current.classList.contains('success-cart')){
+      this.myProduct.current.classList.remove('success-cart')
+    }
     this.setState({...this.state, selectedAttributes:newSelectedAttributes})
   }
 
@@ -37,6 +45,7 @@ class ProductPreview extends React.Component {
     
     if(newCartItem){
       this.context.addNewCartItem(newCartItem)
+      this.myProduct.current.classList.add('success-cart')
     }else{
       this.setState({...this.state,errors:true})
 
@@ -56,6 +65,7 @@ class ProductPreview extends React.Component {
           onMouseEnter={() => this.enableProductHandler()}
           onClick={() => this.props.navigate(`/pdp/${id}`)}
           onMouseLeave={() => this.setState({ ...this.state, active: false, errors:false })}
+          ref={this.myProduct}
         >
           <Carrousel
             inStock={inStock}

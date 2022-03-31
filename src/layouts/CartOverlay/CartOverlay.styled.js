@@ -3,7 +3,7 @@ import { Switcher } from "../../components/styledComponents";
 
 export const CartOverlayBox = styled(Switcher)`
   align-items:flex-start;
-  width: 325px;
+  width: 425px;
   max-height: 540px;
   
   right:60px;
