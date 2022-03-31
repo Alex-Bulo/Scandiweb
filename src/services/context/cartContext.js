@@ -20,7 +20,10 @@ export class CartProvider extends React.Component {
   newCartItemHandler(newItem) {
   //adds newItem to cart when cart is empty
     if (this.state.cartItems.length === 0) {
-      this.setState({ cartItems:[newItem], cartTotal:newItem.qty });
+      const itemToAdd = {order: this.state.cartItems.length+1, ...newItem}
+
+      this.setState({ cartItems:[itemToAdd], cartTotal:itemToAdd.qty });
+      
       return;
     }
 
@@ -31,7 +34,10 @@ export class CartProvider extends React.Component {
 
   //adds newItem to cart when the product doesn't exist in cart (keeps the rest of the products in the cart)
     if (sameItemsInCart.length === 0) {
-      newCart = [...this.state.cartItems, newItem];
+      
+      const itemToAdd = {order: this.state.cartItems.length+1, ...newItem}
+      newCart = [...this.state.cartItems, itemToAdd];
+
     } else {
   //the user is trying to add a product that exists in the cart already
       const restOfItemsInCart = this.state.cartItems.filter(
@@ -71,11 +77,12 @@ export class CartProvider extends React.Component {
       });
 
 //we add the newProduct only when NONE of our in-cart products had the same attributes
-      !attributesCheck.some(check=>check===true) && newCart.push(newItem)
+      !attributesCheck.some(check=>check===true) && newCart.push({order:this.state.cartItems.length+1 , ...newItem})
 
     }
 
     const newTotal = newCart.reduce((prev, curr) => prev + curr.qty, 0);
+    newCart.sort((a,b)=>a.order - b.order)
     this.setState({ cartItems: newCart, cartTotal: newTotal });
 
   }

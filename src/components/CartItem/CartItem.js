@@ -1,6 +1,7 @@
 import React from "react";
 import { AttributeOption } from "../Attributes/Attributes.styled";
 import Carrousel from "../Carrousel/Carrousel";
+import Counter from "../Counter/Counter";
 import PriceContainer from "../Price/PriceContainer";
 import { CartItemBox, ItemDetails } from "./CartItem.styled";
 
@@ -34,8 +35,10 @@ class CartItem extends React.Component {
             })}
           </div>
         </ItemDetails>
+
         {/* </section> */}
-        {/* <section className="cart-images"> */}
+        <Counter item={item} action={{add:addNewItem, delete:deleteItem}} loc={loc}/>
+
         <Carrousel
           inStock={item.inStock}
           images={item.gallery}
@@ -43,7 +46,6 @@ class CartItem extends React.Component {
           current={0}
         />
 
-        {/* </section> */}
       </CartItemBox>
     );
   }

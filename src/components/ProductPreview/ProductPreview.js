@@ -23,7 +23,6 @@ class ProductPreview extends React.Component {
   }
 
   enableProductHandler() {
-    console.log(this.myProduct.current.classList.contains('success-cart'));
     if(this.myProduct.current.classList.contains('success-cart')){
       this.myProduct.current.classList.remove('success-cart')
     }
