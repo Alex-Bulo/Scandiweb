@@ -27,21 +27,32 @@ export const Button = styled.button`
   font-weight: 600;
   font-family:'Raleway SemiBold';
   font-size: 16px;
-`
+
+  cursor: pointer;
+  `
 
 export const CTA = styled(Button)`
-
   background-color: var(--accent-bkg-color);
   color:var(--accent-font-color);
+  
   border:none;
   
-
-`
+  &:hover{
+    filter: brightness(1.1);
+    transition: all .4s ease-in-out; 
+    border: 1px solid #000;
+  }
+  `
 
 export const CTASecondary = styled(Button)`
   background-color: var(--bkg-color);
   color:var(--primary-font-color);
-
+  
   border: 1px solid #000;
-
+  
+  &:hover{
+    filter: brightness(.95);
+    border: 2px solid #000;
+    transition: all .4s ease-in-out; 
+  }
 `
