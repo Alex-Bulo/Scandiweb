@@ -68,6 +68,16 @@ a{
         opacity: 1;
     }
 }
+@keyframes scale-down {
+    0%{
+        transform: scaleX(4);
+        background-color:var(--accent-bkg-color)
+    }
+    100%{
+        background-color: #000;
+        transform: scaleX(1);
+    }
+}
 
 
 .brand-name{

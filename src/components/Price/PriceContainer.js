@@ -6,7 +6,7 @@ import "./Price.css";
 class PriceContainer extends React.Component {
   static contextType = CurrencyContext;
   render() {
-    console.log(this.props.productInfo);
+
     return (
       this.context.selectedCurrency && (
         <Price

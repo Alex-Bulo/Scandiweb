@@ -12,20 +12,21 @@
     width: 18px;
 }
 .cart-total{
-    width: 13px;
-    height: 13px;
+    width: 15px;
+    height: 15px;
     
     position:absolute;
-    top:-3px;
-    right: -3px;
+    top:-4px;
+    right: -4px;
     
     text-align: center;
     
     color: var(--accent-font-color);
-    font-size: 12px;
+    font-size: 13px;
     
     border-radius: 50%;
-    background-color: #000;
+
+    animation: scale-down .5s forwards;
 }
 
 .active-option .cart-icn{

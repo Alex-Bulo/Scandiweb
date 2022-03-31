@@ -45,7 +45,7 @@ export const getProductsByCategory = async (id) => {
 export const calculatePrice = (productInfo, currency) => {
 
   const totalAmount = productInfo.reduce((total,product) => {
-    console.log(product);
+ 
     const priceToUse = product.prices.filter(
       (price) => price.currency.label === currency
     )[0]
