@@ -4,8 +4,8 @@ import "./Price.css";
 
 class Price extends React.Component {
   render() {
-    const { productInfo, currency } = this.props;
-    const finalPrice = calculatePrice(productInfo, currency);
+    const { productsPriceInfo, currency } = this.props;
+    const finalPrice = calculatePrice(productsPriceInfo, currency);
 
     return <p className="Price">{finalPrice}</p>;
 
