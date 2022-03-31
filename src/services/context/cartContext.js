@@ -81,7 +81,7 @@ export class CartProvider extends React.Component {
   }
 
   deleteCartItemHandler(cartItemId) {
-    console.log("deleting ", cartItemId);
+    // console.log("deleting ", cartItemId);
     const newCart = this.state.cartItems.filter(
       (item) => item.id !== cartItemId
     );

@@ -86,7 +86,6 @@ export const validateNewCartItem = (product, qty, selectedAttributes) => {
 
   }
 
-  console.log("OK");
   return newCartItem;
 };
 

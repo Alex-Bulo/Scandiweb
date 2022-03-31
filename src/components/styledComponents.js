@@ -28,6 +28,7 @@ export const Button = styled.button`
   font-family:'Raleway SemiBold';
   font-size: 16px;
 
+  text-transform: uppercase;
   cursor: pointer;
   `
 

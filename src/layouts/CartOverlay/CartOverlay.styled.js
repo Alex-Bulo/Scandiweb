@@ -6,7 +6,7 @@ export const CartOverlayBox = styled(Switcher)`
   max-height: 540px;
   
   right:60px;
-  top:-5px;
+
 
 
   .cart-overlay-title{
