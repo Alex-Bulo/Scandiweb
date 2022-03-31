@@ -23,9 +23,10 @@ class CartItem extends React.Component {
             productsPriceInfo={[{ prices: item.prices, qty: item.qty }]}
           />
           <div className="cart-attributes">
-            {item.selectedAttributes.map((attribute) => {
+            {item.selectedAttributes.map((attribute,i) => {
               return (
                 <AttributeOption
+                  key={i}
                   type={attribute.items.type}
                   value={attribute.items.id}
                 >

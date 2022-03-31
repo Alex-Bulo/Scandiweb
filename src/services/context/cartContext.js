@@ -87,10 +87,10 @@ export class CartProvider extends React.Component {
 
   }
 
-  deleteCartItemHandler(cartItemId) {
-    // console.log("deleting ", cartItemId);
+  deleteCartItemHandler(order) {
+
     const newCart = this.state.cartItems.filter(
-      (item) => item.id !== cartItemId
+      (item) => item.order !== order
     );
     const newTotal = newCart.reduce((prev, curr) => prev + curr.qty, 0);
 

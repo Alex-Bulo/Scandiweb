@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
-export const CounterBox = styled.section`
+export const CounterBox = styled.div`
     height:100%;
-    width:100%;
-    margin-left:auto;
+    width:15%;
+    
 
     display: flex;
-    
     flex-direction:column;
-    align-items:center;
-    justify-content:space-between;
+    align-items:flex-end;
+    justify-content:space-around;
 
 `
 const CounterItems = styled.button`
@@ -20,10 +19,16 @@ width: ${props => props.loc === 'overlay' ? '24px' : '45px'};
 background-color: #fff;
 
 display: flex;
+justify-content:center;
+align-items:center;
 
 `
 export const CounterBtn = styled(CounterItems)`
     border: 1px solid #000;
+
+    img{
+        width:75%;
+    }
 
     &:hover{
         background-color: #e5e5e5;

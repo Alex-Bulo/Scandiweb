@@ -22,13 +22,13 @@ export const CartItemBox = styled.article`
     display: none;
   }
   .carrousel-container {
-    width: 30%;
+    width: 35%;
     margin:inherit;
   }
 `;
 
 export const ItemDetails = styled.div`
-    width:40%;
+    width:50%;
     margin-right: auto;
   
     h3 {
