@@ -13,10 +13,11 @@ class CartOverlay extends React.Component {
   render() {
     const { cartItems, cartTotal, addNewCartItem, deleteCartItem } =
       this.context;
-    
-    const priceInfo = cartItems.map(item => {return{prices:item.prices, qty:item.qty}})
-      
-    console.log(cartItems);
+
+    const priceInfo = cartItems.map((item) => {
+      return { prices: item.prices, qty: item.qty };
+    });
+
     return (
       <CartOverlayBox onClick={(e) => e.stopPropagation()}>
         {this.context.cartItems.length > 0 && (
@@ -33,14 +34,14 @@ class CartOverlay extends React.Component {
                   item={cartItem}
                   addNewItem={addNewCartItem}
                   deleteItem={deleteCartItem}
+                  loc='overlay'
                 />
               ))}
             </section>
 
             <section className="total-container">
               <h3>Total</h3>
-              <PriceContainer productsPriceInfo={priceInfo}/>
-
+              <PriceContainer productsPriceInfo={priceInfo} />
             </section>
 
             <div className="overlay-ctas">

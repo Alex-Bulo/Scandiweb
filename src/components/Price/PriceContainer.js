@@ -11,7 +11,7 @@ class PriceContainer extends React.Component {
       this.context.selectedCurrency && (
         <Price
           productsPriceInfo={this.props.productsPriceInfo}
-          currency={this.context.selectedCurrency.label}
+          currency={this.context.selectedCurrency.symbol}
         />
       )
     );

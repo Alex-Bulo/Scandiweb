@@ -1,13 +1,27 @@
 import React from "react";
-import "./CartItem.css";
+import PriceContainer from "../Price/PriceContainer";
+import { CartItemBox, ItemDetails } from "./CartItem.styled";
 
 class CartItem extends React.Component {
-  
-  
-    render() {
-        console.log('RARO');
+  render() {
+    const { item, addNewItem, deleteItem, loc } = this.props;
+    console.log(this.props);
     return (
-        <article>CARRITO</article>
+      <CartItemBox loc={loc}>
+        <section>
+        <ItemDetails>
+          <h3>
+            {item.brand}
+            <br />
+            <span>{item.name}</span>
+          </h3>
+        </ItemDetails>
+
+        <PriceContainer productsPriceInfo={[{ prices: item.prices, qty: item.qty }]}/>
+        
+        </section>
+      
+      </CartItemBox>
     );
   }
 }

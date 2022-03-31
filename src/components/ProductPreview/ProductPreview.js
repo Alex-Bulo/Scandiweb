@@ -31,8 +31,8 @@ class ProductPreview extends React.Component {
   }
 
   addToCartHandler(){
+
     this.setState({...this.state,errors:false})
-    console.log('LAST CART ', this.context.cartItems);
     const newCartItem = validateNewCartItem(this.props.product, this.state.qty, this.state.selectedAttributes)
     
     if(newCartItem){

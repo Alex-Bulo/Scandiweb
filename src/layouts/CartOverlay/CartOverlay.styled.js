@@ -2,15 +2,18 @@ import styled from "styled-components";
 import { Switcher } from "../../components/styledComponents";
 
 export const CartOverlayBox = styled(Switcher)`
+  align-items:flex-start;
   width: 325px;
   max-height: 540px;
   
   right:60px;
 
-
+  section{
+    padding:0 10px;
+    width:100%;
+  }
 
   .cart-overlay-title{
-    align-self: flex-start;
     margin: 10px;
     margin-bottom: 25px;
 
@@ -25,7 +28,6 @@ export const CartOverlayBox = styled(Switcher)`
   }
 
   .total-container{
-    align-self: flex-start;
     
     margin:25px 0;
     padding: 0 10px;

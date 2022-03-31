@@ -47,7 +47,7 @@ export const calculatePrice = (productInfo, currency) => {
   const totalAmount = productInfo.reduce((total,product) => {
  
     const priceToUse = product.prices.filter(
-      (price) => price.currency.label === currency
+      (price) => price.currency.symbol === currency
     )[0]
       
     const calculatedPrice = (product.qty * Number(priceToUse.amount));
