@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const CounterBox = styled.div`
     height:100%;
-    width:15%;
-    
+    max-width:45px;
+    /* width: ${props => props.loc === 'overlay' ? '34px' : '55px'}; */
+    /* margin-left:auto; */
 
     display: flex;
     flex-direction:column;
@@ -37,7 +38,11 @@ export const CounterBtn = styled(CounterItems)`
 `
 
 export const Count = styled.div`
+    width:100%;
+
     display: flex;
+    align-items:center;
+    justify-content:center;
 
     p{
         font-size: ${props => props.loc === 'overlay' ? '16px' : '24px'};

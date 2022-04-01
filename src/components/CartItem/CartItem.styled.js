@@ -23,7 +23,6 @@ export const CartItemBox = styled.article`
   }
   .carrousel-container {
     width: 35%;
-    margin:inherit;
   }
 `;
 
