@@ -20,6 +20,9 @@ export const CartItemBox = styled.article`
     
     -ms-overflow-style: none;
     scrollbar-width: none;
+    div{
+      cursor:default;
+    }
   }
   .cart-attributes::-webkit-scrollbar {
     display: none;

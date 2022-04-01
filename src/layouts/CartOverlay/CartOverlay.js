@@ -19,13 +19,13 @@ class CartOverlay extends React.Component {
 
     return (
       <CartOverlayBox onClick={(e) => e.stopPropagation()}>
-        {this.context.cartItems.length > 0 && (
-          <>
-            <div className="cart-overlay-title">
+        <div className="cart-overlay-title">
               <h2>
                 My Bag, <span>{cartItems.length} different products</span>{" "}
               </h2>
             </div>
+        {this.context.cartItems.length > 0 && (
+          <>
             <section className="cart-item-section">
               {cartItems.map((cartItem, i) => (
                 <CartItem
@@ -43,7 +43,10 @@ class CartOverlay extends React.Component {
               <PriceContainer productsPriceInfo={priceInfo} />
             </section>
 
-            <div className="overlay-ctas">
+            
+          </>
+        )}
+        <div className="overlay-ctas">
               <CTASecondary
                 width={"50%"}
                 onClick={() => this.props.navigate("/cart")}
@@ -57,8 +60,6 @@ class CartOverlay extends React.Component {
                 Checkout
               </CTA>
             </div>
-          </>
-        )}
       </CartOverlayBox>
     );
   }
