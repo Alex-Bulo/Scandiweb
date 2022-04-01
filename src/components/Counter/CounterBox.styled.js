@@ -23,6 +23,7 @@ display: flex;
 justify-content:center;
 align-items:center;
 
+cursor: pointer;
 `
 export const CounterBtn = styled(CounterItems)`
     border: 1px solid #000;

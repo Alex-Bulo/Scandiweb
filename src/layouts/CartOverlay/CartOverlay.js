@@ -4,7 +4,6 @@ import PriceContainer from "../../components/Price/PriceContainer";
 import { CTA, CTASecondary } from "../../components/styledComponents";
 import CartContext from "../../services/context/cartContext";
 import { addNavigationTo } from "../../services/helpers/helpers";
-// import "./CartOverlay.css";
 import { CartOverlayBox } from "./CartOverlay.styled";
 
 class CartOverlay extends React.Component {
@@ -24,10 +23,10 @@ class CartOverlay extends React.Component {
           <>
             <div className="cart-overlay-title">
               <h2>
-                My Bag, <span>{cartTotal} items</span>{" "}
+                My Bag, <span>{cartItems.length} different products</span>{" "}
               </h2>
             </div>
-            <section>
+            <section className="cart-item-section">
               {cartItems.map((cartItem, i) => (
                 <CartItem
                   key={`${cartItem.name}-${i}`}

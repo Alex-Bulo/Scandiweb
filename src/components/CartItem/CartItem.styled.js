@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const CartItemBox = styled.article`
+  padding: 2px 0;
+  margin-top: 2px 0;
+
   width: 100%;
   height: ${(props) => (props.loc === "overlay" ? "135px" : "185px")};
 
@@ -28,7 +31,11 @@ export const CartItemBox = styled.article`
 
 export const ItemDetails = styled.div`
     width:50%;
+    
     margin-right: auto;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-around;
   
     h3 {
     font-family: "Raleway Light";

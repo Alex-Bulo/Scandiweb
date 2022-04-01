@@ -8,9 +8,20 @@ export const CartOverlayBox = styled(Switcher)`
   
   right:60px;
 
-  section{
+  .cart-item-section,
+  .total-container{
     padding:0 10px;
     width:100%;
+  }
+  .cart-item-section{
+    max-height:375px;
+    overflow-y:scroll;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .cart-item-section::-webkit-scrollbar {
+    display: none;
   }
 
   .cart-overlay-title{
