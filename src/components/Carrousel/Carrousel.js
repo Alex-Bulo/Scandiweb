@@ -1,6 +1,5 @@
 import React from "react";
 import Snippets from "../Snippets/Snippets";
-import { Image } from "../styledComponents";
 import "./Carrousel.css";
 
 class Carrousel extends React.Component {
@@ -41,7 +40,7 @@ class Carrousel extends React.Component {
 
   render() {
     const { images, name, inStock, hasSnippets } = this.props;
-    console.log(this.state.mainImage, images);
+
     return (
       this.state.mainImage >= 0 && (
         <section className="carrousel-container">

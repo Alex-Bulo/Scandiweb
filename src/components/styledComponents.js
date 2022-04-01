@@ -57,9 +57,3 @@ export const CTASecondary = styled(Button)`
     transition: all .4s ease-in-out; 
   }
 `
-
-export const Image = styled.image`
-
-  width:100%;
-
-`

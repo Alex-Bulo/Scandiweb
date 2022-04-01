@@ -1,13 +1,13 @@
 import React from "react";
 import { client, Query } from "@tilework/opus";
-import CartContext from "./cartContext";
+// import CartContext from "./cartContext";
 
 const CurrencyContext = React.createContext();
 
 export const CurrencyConsumer = CurrencyContext.Consumer;
 
 export class CurrencyProvider extends React.Component {
-  static contextType = CartContext;
+  // static contextType = CartContext;
   
   constructor(props) {
     super(props);
@@ -30,7 +30,7 @@ export class CurrencyProvider extends React.Component {
 
   newCurrencyHandler(currency) {
     this.setState({ ...this.state, selectedCurrency: currency });
-    this.context.updatePricesByCurrency(currency.label)
+    // this.context.updatePricesByCurrency(currency.label)
   }
 
   render() {

@@ -11,7 +11,7 @@ class CartItem extends React.Component {
     console.log(item.selectedAttributes)
     return (
       <CartItemBox loc={loc}>
-        {/* <section> */}
+
         <ItemDetails loc={loc}>
           <h3>
             {item.brand}
@@ -43,7 +43,6 @@ class CartItem extends React.Component {
           </div>
         </ItemDetails>
 
-        {/* </section> */}
         <Counter
           item={item}
           action={{ add: addNewItem, delete: deleteItem }}
