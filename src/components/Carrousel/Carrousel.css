@@ -1,4 +1,6 @@
-
+.carrousel-container{
+    display: flex;
+}
 .Carrousel{
     width: 100%;
     height: 100%;
@@ -12,7 +14,6 @@
 }
 .carrousel-image{
     width: 100%;
-
 }
 .moving-icn{
     width: 15%;

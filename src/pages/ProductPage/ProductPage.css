@@ -1,0 +1,10 @@
+.ProductPage{
+    margin:5%;
+    width: 75%;
+
+    display: flex;
+}
+
+.ProductPage .carrousel-container{
+    width: 65%;
+}

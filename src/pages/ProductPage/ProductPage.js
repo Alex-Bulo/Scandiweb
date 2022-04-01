@@ -1,7 +1,8 @@
 import React from "react";
+import Carrousel from "../../components/Carrousel/Carrousel";
 import { getProductById } from "../../services/helpers/apiRequests";
 import { addNavigationTo } from "../../services/helpers/helpers";
-// import "./ProductPage.css";
+import "./ProductPage.css";
 
 class ProductPage extends React.Component {
   constructor(props) {
@@ -10,22 +11,31 @@ class ProductPage extends React.Component {
   }
 
   async componentDidMount() {
-      const id = this.props.params.id;
+    const id = this.props.params.id;
 
     const newProduct = await getProductById(id);
 
-    this.setState({ product: newProduct});
+    this.setState({ product: newProduct, mainImage: 0 });
   }
 
   render() {
-    const{product} = this.state  
-    console.log(this.state);
+    const { product } = this.state;
+    
     return (
-        product &&
-     <main>
-         <h1>{product.name}</h1>
-     </main>
+      product && (
+        <main className="ProductPage">
+          <Carrousel
+            inStock={product.inStock}
+            images={product.gallery}
+            name={product.name}
+            hasSnippets={true}
+          >
+            
+          </Carrousel>
+          
+        </main>
       )
+    );
   }
 }
 

@@ -58,3 +58,8 @@ export const CTASecondary = styled(Button)`
   }
 `
 
+export const Image = styled.image`
+
+  width:100%;
+
+`

@@ -1,0 +1,22 @@
+.Snippets{
+    width: 15%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.Snippets::-webkit-scrollbar {
+    display: none;
+}
+.snippet-container{
+    width: 80%;
+}
+.snippet{
+    margin:5px 0;
+    width: 100%;
+
+}

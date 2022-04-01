@@ -1,74 +1,85 @@
 import React from "react";
-import './Carrousel.css'
+import Snippets from "../Snippets/Snippets";
+import { Image } from "../styledComponents";
+import "./Carrousel.css";
 
 class Carrousel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { current: null };
-    this.previousPicHandler = this.previousPicHandler.bind(this)
-    this.nextPicHandler = this.nextPicHandler.bind(this)
-
+    this.state = { mainImage: null };
+    this.previousPicHandler = this.previousPicHandler.bind(this);
+    this.nextPicHandler = this.nextPicHandler.bind(this);
   }
 
   componentDidMount() {
-    this.setState({ current: this.props.current || 0 });
-
+    this.setState({ mainImage: 0 });
   }
 
   previousPicHandler(e) {
-      e.stopPropagation()
-    const currentImage = this.state.current;
-    const lastImage = this.props.images.length -1;
+    e.stopPropagation();
+    const { mainImage } = this.state;
+    const lastImage = this.props.images.length - 1;
 
-    if (currentImage <= 0) {
-      this.setState({ current: lastImage });
+    if (mainImage <= 0) {
+      this.setState({ mainImage: lastImage });
     } else {
-      this.setState({ current: currentImage - 1 });
+      this.setState({ mainImage: mainImage - 1 });
     }
   }
 
   nextPicHandler(e) {
-    e.stopPropagation()
-    const currentImage = this.state.current;
-    const lastImage = this.props.images.length -1;
+    e.stopPropagation();
+    const { mainImage } = this.state;
+    const lastImage = this.props.images.length - 1;
 
-    if (currentImage >= lastImage) {
-      this.setState({ current: 0 });
+    if (mainImage >= lastImage) {
+      this.setState({ mainImage: 0 });
     } else {
-      this.setState({ current: currentImage + 1 });
+      this.setState({ mainImage: mainImage + 1 });
     }
   }
 
   render() {
-    const{images, name, inStock} = this.props
-    
+    const { images, name, inStock, hasSnippets } = this.props;
+    console.log(this.state.mainImage, images);
     return (
-      this.state.current >= 0 && (
-        
+      this.state.mainImage >= 0 && (
         <section className="carrousel-container">
-          
-          {images[this.state.current] && (
-            <article className={`Carrousel ${!inStock ? 'img-no-stock':''}`}>
+          {hasSnippets && (
+            <Snippets
+              images={images}
+              name={name}
+              mainImage={this.state.mainImage}
+              updateMainImage={(image) => this.setState({ mainImage: image })}
+            />
+          )}
+
+          {images[this.state.mainImage] && (
+            <article className={`Carrousel ${!inStock ? "img-no-stock" : ""}`}>
               {!inStock && <p className="stock-msg">OUT OF STOCK</p>}
-              <div className="moving-icn moving-prev" onClick={this.previousPicHandler}>
+              <div
+                className="moving-icn moving-prev"
+                onClick={this.previousPicHandler}
+              >
                 <i>{"<"}</i>
               </div>
-              
+
               <img
-                src={this.props.images[this.state.current]}
+                src={this.props.images[this.state.mainImage]}
                 alt={`${name}`}
                 className="carrousel-image"
               />
-              
-              <div className="moving-icn moving-next" onClick={this.nextPicHandler}>
-              <i>{">"}</i>
+
+              <div
+                className="moving-icn moving-next"
+                onClick={this.nextPicHandler}
+              >
+                <i>{">"}</i>
               </div>
-            
             </article>
           )}
 
-          
-          {!this.props.images[this.state.current] && (
+          {!this.props.images[this.state.mainImage] && (
             <article className="Carrousel no-image">
               <p>No image available</p>
             </article>
