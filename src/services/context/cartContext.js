@@ -49,7 +49,7 @@ export class CartProvider extends React.Component {
 //attributes needed to be paired with the category (attributeID) and the attribute itself (items.id) since there are attributes with the same id (yes/no options)
       const newAttributes = newItem.selectedAttributes
       .map((attribute) => {
-        return { attID: attribute.attributeID, attItem: attribute.items.id };
+        return { attID: attribute.attributeID, attItem: attribute.items.id, attValue:attribute.items.value };
         })
         .sort((a, b) => a.attId - b.attItem);
 
@@ -59,7 +59,7 @@ export class CartProvider extends React.Component {
       sameItemsInCart.forEach((sameItemInCart) => {
         const attributesInCart = sameItemInCart.selectedAttributes
           .map((attribute) => {
-            return { attID: attribute.attributeID, attItem: attribute.items.id };
+            return { attID: attribute.attributeID, attItem: attribute.items.id, attValue:attribute.items.value };
           })
           .sort((a, b) => a.attId - b.attItem);
 

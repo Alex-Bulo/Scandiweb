@@ -3,9 +3,7 @@ import styled from "styled-components";
 export const CounterBox = styled.div`
     height:100%;
     max-width:45px;
-    /* width: ${props => props.loc === 'overlay' ? '34px' : '55px'}; */
-    /* margin-left:auto; */
-
+    margin-right: 5px;
     display: flex;
     flex-direction:column;
     align-items:flex-end;

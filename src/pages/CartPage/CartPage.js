@@ -19,8 +19,8 @@ class CartPage extends React.Component {
     return (
       cartItems && (
         <main className="CartPage">
-          <section>
-            <h1 className="cart-page-title">Cart</h1>
+          <section className='CP-top'>
+            <h1 className="CP-title">Cart</h1>
             <PriceContainer productsPriceInfo={priceInfo} />
             <CTA
               width={"30%"}
@@ -29,7 +29,8 @@ class CartPage extends React.Component {
               Checkout
             </CTA>
           </section>
-        
+        <section className="CP-items-container">
+
           {cartItems.map((cartItem, i) => (
                 <CartItem
                   key={`${cartItem.name}-${i}`}
@@ -39,6 +40,7 @@ class CartPage extends React.Component {
                   loc='page'
                 />
               ))}
+        </section>
         
         </main>
       )
