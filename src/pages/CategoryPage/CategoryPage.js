@@ -1,7 +1,8 @@
 import React from "react";
-import { addNavigationTo, getProductsByCategory } from "../../services/helpers/helpers";
+import { addNavigationTo } from "../../services/helpers/helpers";
 import ProductPreview from "../../components/ProductPreview/ProductPreview";
 import "./CategoryPage.css";
+import { getProductsByCategory } from "../../services/helpers/apiRequests";
 class CategoryPage extends React.Component {
   constructor(props) {
     super(props);

@@ -1,5 +1,6 @@
 import React from "react";
-import { addNavigationTo, getProductsByCategory } from "../../services/helpers/helpers";
+import { getProductById } from "../../services/helpers/apiRequests";
+import { addNavigationTo } from "../../services/helpers/helpers";
 // import "./ProductPage.css";
 
 class ProductPage extends React.Component {
@@ -8,22 +9,21 @@ class ProductPage extends React.Component {
     this.state = { product: null };
   }
 
-//   async componentDidMount() {
-//       const id = this.props.params.id;
-//       console.log(id);
+  async componentDidMount() {
+      const id = this.props.params.id;
 
-//     const newProduct = await getProductsByCategory(id);
+    const newProduct = await getProductById(id);
 
-//     this.setState({ products: newProduct});
-//     // this.setState({ products: {name:'hola'}});
-//   }
+    this.setState({ product: newProduct});
+  }
 
   render() {
-    // const{product} = this.state  
-    // console.log(this.state.product);
+    const{product} = this.state  
+    console.log(this.state);
     return (
+        product &&
      <main>
-         <h1>{'hola'}</h1>
+         <h1>{product.name}</h1>
      </main>
       )
   }
