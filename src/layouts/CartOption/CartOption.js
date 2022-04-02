@@ -26,31 +26,35 @@ class CartOption extends React.Component {
   render() {
     return (
       <section className="CartOption">
-        
         <NavOption
           getMiddlePosition={this.getOptionPositionHandler}
           clickHandler={this.popUpHandler}
         >
-          <div className={`cart-icn-container ${this.state.popUpDisplay && 'active-option'}`}>
+          <div
+            className={`cart-icn-container ${
+              this.state.popUpDisplay && "active-option"
+            }`}
+          >
             <img src={cartIcn} alt="cart icon" className={`cart-icn`} />
 
             {this.context.cartTotal > 0 && (
               <p className="cart-total">{this.context.cartTotal}</p>
             )}
-          
           </div>
         </NavOption>
 
         {this.state.popUpDisplay && (
           <Background
-            op={.2}
+            op={0.2}
             clickHandler={() =>
               this.setState({ ...this.state, popUpDisplay: false })
             }
           >
-
-            <CartOverlay />
-
+            <CartOverlay
+              clickHandler={() =>
+                this.setState({ ...this.state, popUpDisplay: false })
+              }
+            />
           </Background>
         )}
       </section>
