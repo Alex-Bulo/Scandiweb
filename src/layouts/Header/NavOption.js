@@ -1,10 +1,13 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import styled from "styled-components";
 
 const Option = styled.div`
+  position:relative;
+
   width: 40px;
   margin-right: 10px;
+  
+  z-index:3;
 
   font-weight: 500;
   font-size: 18px;
