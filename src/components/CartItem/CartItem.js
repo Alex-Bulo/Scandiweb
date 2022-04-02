@@ -8,7 +8,7 @@ import { CartItemBox, ItemDetails } from "./CartItem.styled";
 class CartItem extends React.Component {
   render() {
     const { item, addNewItem, deleteItem, loc } = this.props;
-    console.log(item.selectedAttributes)
+
     return (
       <CartItemBox loc={loc}>
 

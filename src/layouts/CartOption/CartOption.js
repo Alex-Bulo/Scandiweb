@@ -14,6 +14,7 @@ class CartOption extends React.Component {
     this.state = { optionPosition: null, popUpDisplay: false };
     this.getOptionPositionHandler = this.getOptionPositionHandler.bind(this);
     this.popUpHandler = this.popUpHandler.bind(this);
+    this.icnBadge = React.createRef()
   }
 
   getOptionPositionHandler(position) {
@@ -38,7 +39,7 @@ class CartOption extends React.Component {
             <img src={cartIcn} alt="cart icon" className={`cart-icn`} />
 
             {this.context.cartTotal > 0 && (
-              <p className="cart-total">{this.context.cartTotal}</p>
+              <p ref={this.icnBadge} className="cart-total">{this.context.cartTotal}</p>
             )}
           </div>
         </NavOption>

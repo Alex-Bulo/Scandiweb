@@ -65,6 +65,7 @@ a{
         transform: scaleX(1);
     }
 }
+
 @keyframes new-item {
     0%{
         transform: rotate(0);
