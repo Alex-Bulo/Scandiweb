@@ -34,7 +34,7 @@ class ProductPreview extends React.Component {
     if(this.myProduct.current.classList.contains('success-cart')){
       this.myProduct.current.classList.remove('success-cart')
     }
-    this.setState({...this.state, selectedAttributes:newSelectedAttributes})
+    this.setState({...this.state, selectedAttributes:newSelectedAttributes, errors:false})
   }
 
   addToCartHandler(){
@@ -42,12 +42,11 @@ class ProductPreview extends React.Component {
     this.setState({...this.state,errors:false})
     const newCartItem = validateNewCartItem(this.props.product, this.state.qty, this.state.selectedAttributes)
     
-    if(newCartItem){
+    if(typeof newCartItem === 'string'){
+      this.setState({...this.state,errors:newCartItem})
+    }else{
       this.context.addNewCartItem(newCartItem)
       this.myProduct.current.classList.add('success-cart')
-    }else{
-      this.setState({...this.state,errors:true})
-
     }
 
   }
@@ -110,7 +109,7 @@ class ProductPreview extends React.Component {
                   />
                 ))}
               </section>
-              {this.state.errors && <p className="error plp-error">Please select an option</p>}
+              {this.state.errors && <p className="error plp-error">{this.state.errors}</p>}
             </>
           )}
         </article>

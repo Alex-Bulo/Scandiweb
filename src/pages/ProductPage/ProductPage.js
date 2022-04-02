@@ -4,15 +4,19 @@ import Carrousel from "../../components/Carrousel/Carrousel";
 import { ItemDetails } from "../../components/CartItem/CartItem.styled";
 import PriceContainer from "../../components/Price/PriceContainer";
 import { CTA } from "../../components/styledComponents";
+import CartContext from "../../services/context/cartContext";
 import { getProductById } from "../../services/helpers/apiRequests";
-import { addNavigationTo } from "../../services/helpers/helpers";
+import { addNavigationTo, validateNewCartItem } from "../../services/helpers/helpers";
 import "./ProductPage.css";
 
 class ProductPage extends React.Component {
+  static contextType = CartContext
+
   constructor(props) {
     super(props);
-    this.state = { product: null, selectedAttributes: null, qty: null };
+    this.state = { product: null, selectedAttributes: null, qty: null, errors:null };
     this.selectAttributeHandler = this.selectAttributeHandler.bind(this);
+    this.addToCartHandler = this.addToCartHandler.bind(this)
   }
 
   async componentDidMount() {
@@ -20,11 +24,24 @@ class ProductPage extends React.Component {
 
     const newProduct = await getProductById(id);
 
-    this.setState({ product: newProduct, selectedAttributes: [], qty: 1 });
+    this.setState({ product: newProduct, selectedAttributes: [], qty: 1, errors:false });
   }
 
   selectAttributeHandler(newSelectedAttributes) {
-    this.setState({ ...this.state, selectedAttributes: newSelectedAttributes });
+    this.setState({ ...this.state, selectedAttributes: newSelectedAttributes, errors:false });
+  }
+
+  addToCartHandler(){
+
+    this.setState({...this.state,errors:false})
+    const newCartItem = validateNewCartItem(this.state.product, this.state.qty, this.state.selectedAttributes)
+    
+    if(typeof newCartItem === 'string'){
+      this.setState({...this.state,errors:newCartItem})
+    }else{
+      this.context.addNewCartItem(newCartItem)
+    }
+
   }
 
   render() {
@@ -67,11 +84,13 @@ class ProductPage extends React.Component {
             <div className="container cta-container">
               <CTA
                 width={"80%"}
-                onClick={() => alert("checkout msg with prices calculated")}
+                onClick={this.addToCartHandler}
               >
                 Add to cart
               </CTA>
+            {this.state.errors && <p className="error pdp-error">{this.state.errors}</p>}
             </div>
+
 
             <section className="container description-container">
               <p

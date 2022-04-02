@@ -8,6 +8,7 @@
     overflow: hidden;
 }
 .container{
+    margin-left:5px;
     display: flex;
     flex-direction: column;
 }
@@ -21,12 +22,21 @@
     font-size: 16px;
     text-transform: uppercase;
 }
-
 .pdp-attributes .attributes-title{
     margin-top:5px;
     margin-left: 5px;
 }
+.price-container,
+.pdp-title,
+.description-container{
+    margin-left: 10px;
+}
 .cta-container{
-    align-items: center;
-    justify-content: center;
+    margin:0;
+    position: relative;
+}
+.pdp-error{
+    position: absolute;
+    top:-15%;
+    left:10px;
 }

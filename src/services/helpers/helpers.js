@@ -26,8 +26,8 @@ export const calculatePrice = (productInfo, currency) => {
 };
 
 export const validateNewCartItem = (product, qty, selectedAttributes) => {
-  if (!qty) {
-    return false;
+  if (!qty || !product.inStock) {
+    return "This product is out of stock";
   }
 
   const newCartItem = {
@@ -43,12 +43,12 @@ export const validateNewCartItem = (product, qty, selectedAttributes) => {
     .sort((a, b) => a - b);
 
   if (attributesCategories.length !== newAttributes.length) {
-    return false;
+    return "Please select an option";
   
   } else {
     const isSameArray = compareAttributes(attributesCategories,newAttributes) 
     if(!isSameArray){
-      return false
+      return "Please select an option"
     }
 
   }
