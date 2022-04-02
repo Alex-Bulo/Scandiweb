@@ -1,10 +1,14 @@
 import React from "react";
-import CurrencyContext from "../../services/context/currencyContext";
-import "./CurrencyOption.css";
-import arrowDown from "../../assets/icons/angle-down-solid.svg";
-import { Background } from "../../services/helpers/PopUpContainer";
-import { AvailableCurrency, CurrencySwitcher } from "./CurrencyOption.styled";
+
 import NavOption from "../Header/NavOption";
+import { Background } from "../../components/PopUpContainer/PopUpContainer";
+
+import {CurrencyContext} from "../../services";
+
+import arrowDown from "../../assets/icons/angle-down-solid.svg";
+
+import "./CurrencyOption.css";
+import { AvailableCurrency, CurrencySwitcher } from "./CurrencyOption.styled";
 
 class CurrencyOption extends React.Component {
   static contextType = CurrencyContext;
@@ -12,28 +16,31 @@ class CurrencyOption extends React.Component {
   constructor() {
     super();
     this.state = { optionPosition: null, popUpDisplay: false };
-    this.getOptionPositionHandler = this.getOptionPositionHandler.bind(this)
-    this.popUpHandler = this.popUpHandler.bind(this)
+    this.getOptionPositionHandler = this.getOptionPositionHandler.bind(this);
+    this.popUpHandler = this.popUpHandler.bind(this);
   }
 
-  
-  getOptionPositionHandler(position){
-    this.setState({...this.state, optionPosition:position})  
+  getOptionPositionHandler(position) {
+    this.setState({ ...this.state, optionPosition: position });
   }
-  popUpHandler(){
-    this.setState({...this.state,popUpDisplay:!this.state.popUpDisplay})
+  popUpHandler() {
+    this.setState({ ...this.state, popUpDisplay: !this.state.popUpDisplay });
   }
-
 
   render() {
     return (
       this.context.selectedCurrency && (
         <section className="CurrencyOption">
-          <NavOption getMiddlePosition={this.getOptionPositionHandler} clickHandler={this.popUpHandler}>
-
+          <NavOption
+            getMiddlePosition={this.getOptionPositionHandler}
+            clickHandler={this.popUpHandler}
+          >
             {this.context.selectedCurrency.symbol}
-            <img src={arrowDown} alt="Arrow icon" className={`arrow-icn ${this.state.popUpDisplay ? 'up' : 'down'}`} />
-
+            <img
+              src={arrowDown}
+              alt="Arrow icon"
+              className={`arrow-icn ${this.state.popUpDisplay ? "up" : "down"}`}
+            />
           </NavOption>
 
           {this.state.popUpDisplay && (
@@ -44,7 +51,6 @@ class CurrencyOption extends React.Component {
               }
             >
               <CurrencySwitcher x={this.state.optionPosition}>
-                
                 {this.context.currencies.map((currency) => (
                   <AvailableCurrency
                     key={currency.label}
@@ -55,7 +61,6 @@ class CurrencyOption extends React.Component {
                   >
                     {currency.symbol} {currency.label}
                   </AvailableCurrency>
-                
                 ))}
               </CurrencySwitcher>
             </Background>

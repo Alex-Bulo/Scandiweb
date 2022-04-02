@@ -1,5 +1,5 @@
 import React from "react";
-import { calculatePrice } from "../../services/helpers/helpers";
+import { calculatePrice } from "../../services";
 import "./Price.css";
 
 class Price extends React.Component {

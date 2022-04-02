@@ -1,13 +1,14 @@
 import React from "react";
+
 import Attributes from "../../components/Attributes/Attributes";
 import Carrousel from "../../components/Carrousel/Carrousel";
-import { ItemDetails } from "../../components/CartItem/CartItem.styled";
 import PriceContainer from "../../components/Price/PriceContainer";
-import { CTA } from "../../components/styledComponents";
-import CartContext from "../../services/context/cartContext";
-import { getProductById } from "../../services/helpers/apiRequests";
-import { addNavigationTo, validateNewCartItem } from "../../services/helpers/helpers";
+
+import { CartContext, addNavigationTo, validateNewCartItem, getProductById } from "../../services";
+
 import "./ProductPage.css";
+import { CTA } from "../../components/styledComponents";
+import { ItemDetails } from "../../components/CartItem/CartItem.styled";
 
 class ProductPage extends React.Component {
   static contextType = CartContext

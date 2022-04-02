@@ -1,5 +1,5 @@
 import React from "react";
-import CurrencyContext from "../../services/context/currencyContext";
+import {CurrencyContext} from '../../services';
 import Price from "./Price";
 import "./Price.css";
 

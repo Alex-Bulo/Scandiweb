@@ -1,7 +1,7 @@
 import React from "react";
-import { compareAttributes, validateNewCartItem } from "../helpers/helpers";
+import { compareAttributes } from "..";
 
-const CartContext = React.createContext();
+export const CartContext = React.createContext();
 
 export const CartConsumer = CartContext.Consumer;
 
@@ -114,5 +114,3 @@ export class CartProvider extends React.Component {
     );
   }
 }
-
-export default CartContext;

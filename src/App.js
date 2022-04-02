@@ -1,9 +1,9 @@
 import React from "react";
+
 import { Route, Routes, Navigate } from "react-router-dom";
+
 import Header from "./layouts/Header/Header";
-import CartPage from "./pages/CartPage/CartPage";
-import CategoryPage from "./pages/CategoryPage/CategoryPage";
-import ProductPage from "./pages/ProductPage/ProductPage";
+import {CartPage, CategoryPage, ProductPage} from './pages'
 
 class App extends React.Component {
 

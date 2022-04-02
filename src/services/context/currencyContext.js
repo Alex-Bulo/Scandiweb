@@ -1,13 +1,14 @@
 import React from "react";
-import { client, Query } from "@tilework/opus";
-// import CartContext from "./cartContext";
 
-const CurrencyContext = React.createContext();
+import { client, Query } from "@tilework/opus";
+
+
+export const CurrencyContext = React.createContext();
 
 export const CurrencyConsumer = CurrencyContext.Consumer;
 
 export class CurrencyProvider extends React.Component {
-  // static contextType = CartContext;
+  
   
   constructor(props) {
     super(props);
@@ -47,5 +48,3 @@ export class CurrencyProvider extends React.Component {
     );
   }
 }
-
-export default CurrencyContext;

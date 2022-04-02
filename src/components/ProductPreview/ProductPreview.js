@@ -1,11 +1,11 @@
 import React from "react";
-import CartContext from "../../services/context/cartContext";
+import {CartContext} from "../../services";
 import Carrousel from "../Carrousel/Carrousel";
 import PriceContainer from "../Price/PriceContainer";
 import Attributes from "../Attributes/Attributes";
 import "./ProductPreview.css";
 import cartIcn from "../../assets/icons/white-cart.svg";
-import { addNavigationTo, validateNewCartItem } from "../../services/helpers/helpers";
+import { addNavigationTo, validateNewCartItem } from "../../services";
 class ProductPreview extends React.Component {
   static contextType = CartContext;
   constructor(props) {

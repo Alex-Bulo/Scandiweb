@@ -1,10 +1,14 @@
 import React from "react";
-import CartContext from "../../services/context/cartContext";
+
 import NavOption from "../Header/NavOption";
-import cartIcn from "../../assets/icons/empty-cart.svg";
-import "./CartOption.css";
-import { Background } from "../../services/helpers/PopUpContainer";
+import { Background } from "../../components/PopUpContainer/PopUpContainer";
 import CartOverlay from "../CartOverlay/CartOverlay";
+
+import {CartContext} from "../../services";
+
+import cartIcn from "../../assets/icons/empty-cart.svg";
+
+import "./CartOption.css";
 
 class CartOption extends React.Component {
   static contextType = CartContext;
@@ -14,7 +18,7 @@ class CartOption extends React.Component {
     this.state = { optionPosition: null, popUpDisplay: false };
     this.getOptionPositionHandler = this.getOptionPositionHandler.bind(this);
     this.popUpHandler = this.popUpHandler.bind(this);
-    this.icnBadge = React.createRef()
+    this.icnBadge = React.createRef();
   }
 
   getOptionPositionHandler(position) {
@@ -33,13 +37,17 @@ class CartOption extends React.Component {
         >
           <div
             className={`cart-icn-container ${
-              this.state.popUpDisplay && this.context.cartTotal ===0 && "active-option"
+              this.state.popUpDisplay &&
+              this.context.cartTotal === 0 &&
+              "active-option"
             }`}
           >
             <img src={cartIcn} alt="cart icon" className={`cart-icn`} />
 
             {this.context.cartTotal > 0 && (
-              <p ref={this.icnBadge} className="cart-total">{this.context.cartTotal}</p>
+              <p ref={this.icnBadge} className="cart-total">
+                {this.context.cartTotal}
+              </p>
             )}
           </div>
         </NavOption>

@@ -1,8 +1,11 @@
 import React from "react";
-import { addNavigationTo } from "../../services/helpers/helpers";
+
 import ProductPreview from "../../components/ProductPreview/ProductPreview";
+
+import { addNavigationTo, getProductsByCategory } from "../../services";
+
 import "./CategoryPage.css";
-import { getProductsByCategory } from "../../services/helpers/apiRequests";
+
 class CategoryPage extends React.Component {
   constructor(props) {
     super(props);
@@ -30,15 +33,13 @@ class CategoryPage extends React.Component {
     return (
       this.state.products && (
         <main className="CategoryPage">
-
           <h1 className="category-title">{this.state.category}</h1>
-          
+
           <section className="products-container">
             {this.state.products.map((product) => (
               <ProductPreview key={product.id} product={product} />
             ))}
           </section>
-        
         </main>
       )
     );
