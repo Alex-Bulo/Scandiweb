@@ -1,10 +1,32 @@
 .ProductPage{
     margin:5%;
     width: 75%;
+    height: 70vh;
 
     display: flex;
+    justify-content: space-between;
+    overflow: hidden;
 }
-
+.container{
+    display: flex;
+    flex-direction: column;
+}
 .ProductPage .carrousel-container{
     width: 60%;
+}
+.pdp-attributes .attributes-title,
+.price-title{
+    font-family: 'Raleway Bold';
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.pdp-attributes .attributes-title{
+    margin-top:5px;
+    margin-left: 5px;
+}
+.cta-container{
+    align-items: center;
+    justify-content: center;
 }

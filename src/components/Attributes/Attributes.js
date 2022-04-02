@@ -51,7 +51,7 @@ class Attributes extends React.Component {
 
     return (
       <>
-        <h3 className="attributes-title">{name}</h3>
+        <h4 className="attributes-title">{name}:</h4>
         <section className="attributes-container">
           {items.map((item) => {
             const isSelected =

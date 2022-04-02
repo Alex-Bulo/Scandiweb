@@ -40,9 +40,9 @@ export const CartItemBox = styled.article`
 `;
 
 export const ItemDetails = styled.div`
-    width:50%;
+    width:${(props) => (props.loc === "overlay" ? "50%" : "35%")};;;
     
-    margin-right: auto;
+    margin-right: ${(props) => (props.loc === "overlay" ? "auto" : "0")};;;
     display: flex;
     flex-direction:column;
     justify-content:space-around;

@@ -40,14 +40,14 @@ class ProductPage extends React.Component {
             hasSnippets={true}
           ></Carrousel>
 
-          <ItemDetails classname='pdp-details' loc="pdp">
-            <h3>
+          <ItemDetails classname="pdp-details" loc="pdp">
+            <h3 className="pdp-title">
               {product.brand}
               <br />
               <span>{product.name}</span>
             </h3>
 
-            <div className="cart-attributes">
+            <div className="container pdp-attributes">
               {product.attributes.map((attribute) => (
                 <Attributes
                   key={attribute.id}
@@ -58,24 +58,26 @@ class ProductPage extends React.Component {
               ))}
             </div>
 
-            <PriceContainer
-              productsPriceInfo={[{ prices: product.prices, qty: qty }]}
-            />
+            <div className="container price-container">
+              <h4 className="price-title">Price:</h4>
+              <PriceContainer
+                productsPriceInfo={[{ prices: product.prices, qty: qty }]}
+              />
+            </div>
+            <div className="container cta-container">
+              <CTA
+                width={"80%"}
+                onClick={() => alert("checkout msg with prices calculated")}
+              >
+                Add to cart
+              </CTA>
+            </div>
 
-            <CTA
-              width={"50%"}
-              onClick={() => alert("checkout msg with prices calculated")}
-            >
-              Checkout
-            </CTA>
-
-            <section className="description-container">
-                
-                <p dangerouslySetInnerHTML={ {__html: `${product.description}`}} />
+            <section className="container description-container">
+              <p
+                dangerouslySetInnerHTML={{ __html: `${product.description}` }}
+              />
             </section>
-
-
-
           </ItemDetails>
         </main>
       )
