@@ -32,7 +32,7 @@ class CartOption extends React.Component {
         >
           <div
             className={`cart-icn-container ${
-              this.state.popUpDisplay && "active-option"
+              this.state.popUpDisplay && this.context.cartTotal ===0 && "active-option"
             }`}
           >
             <img src={cartIcn} alt="cart icon" className={`cart-icn`} />
