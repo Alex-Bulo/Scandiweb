@@ -31,6 +31,17 @@
 .description-container{
     margin-left: 10px;
 }
+.description-container{
+    max-height: 225px;
+
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.description-container::-webkit-scrollbar {
+    display: none;
+}
+
 .cta-container{
     margin:0;
     position: relative;
