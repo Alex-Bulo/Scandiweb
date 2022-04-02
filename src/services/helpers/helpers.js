@@ -35,17 +35,23 @@ export const validateNewCartItem = (product, qty, selectedAttributes) => {
     qty,
     selectedAttributes,
   };
-  const attributesCategories = newCartItem.attributes
-    .map((attribute) => attribute.id)
-    .sort((a, b) => a - b);
-  const newAttributes = newCartItem.selectedAttributes
-    .map((attribute) => attribute.attributeID)
-    .sort((a, b) => a - b);
+  
+  if(product.attributes.length === 0 && selectedAttributes.length === 0){
+    return newCartItem
+  }
 
+  const attributesCategories = newCartItem.attributes
+  .map((attribute) => attribute.id)
+  .sort((a, b) => a - b);
+  const newAttributes = newCartItem.selectedAttributes
+  .map((attribute) => attribute.attributeID)
+  .sort((a, b) => a - b);
+  
   if (attributesCategories.length !== newAttributes.length) {
     return "Please select an option";
-  
+    
   } else {
+
     const isSameArray = compareAttributes(attributesCategories,newAttributes) 
     if(!isSameArray){
       return "Please select an option"
@@ -59,7 +65,7 @@ export const validateNewCartItem = (product, qty, selectedAttributes) => {
 export const compareAttributes = (arrayA,arrayB)=>{
   
   for (let i = 0; i < arrayA.length; i++) {
-
+    
     if ( arrayA[i].attID === arrayB[i].attID && arrayA[i].attItem === arrayB[i].attItem) {
       return true;
     }
