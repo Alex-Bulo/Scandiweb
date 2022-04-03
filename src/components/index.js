@@ -5,6 +5,7 @@ import { Counter } from "./Counter/Counter";
 import { PopUpContainer } from "./PopUpContainer/PopUpContainer";
 import { PriceContainer } from "./Price/PriceContainer";
 import ProductPreview from "./ProductPreview/ProductPreview";
+import { PurchaseOrder } from "./PurchaseOrder/PurchaseOrder";
 import { Snippets } from "./Snippets/Snippets";
 
 export {
@@ -16,4 +17,5 @@ export {
   PriceContainer,
   ProductPreview,
   Snippets,
+  PurchaseOrder
 };

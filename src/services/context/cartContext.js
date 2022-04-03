@@ -11,6 +11,8 @@ export class CartProvider extends React.Component {
     this.state = { cartItems: [], cartTotal: null };
     this.newCartItemHandler = this.newCartItemHandler.bind(this);
     this.deleteCartItemHandler = this.deleteCartItemHandler.bind(this);
+    this.purchaseInformation = this.purchaseInformation.bind(this);
+    this.emptyCart = this.emptyCart.bind(this);
   }
 
   componentDidMount() {
@@ -97,6 +99,28 @@ export class CartProvider extends React.Component {
     this.setState({ cartItems: newCart, cartTotal: newTotal });
   }
 
+  purchaseInformation(){
+    
+    const purchase = this.state.cartItems.map( item => {
+      const { brand, name, qty, prices, selectedAttributes} = item
+
+      return {
+        brand,
+        name,
+        qty,
+        prices: prices.map(price=> `${price.currency.symbol} ${price.amount * qty}`),
+        selectedAttributes
+      }
+
+    })
+      
+    return purchase;
+  }
+
+  emptyCart(){
+    this.setState({ cartItems: [], cartTotal: 0 });
+  }
+
 
 
   render() {
@@ -107,6 +131,8 @@ export class CartProvider extends React.Component {
           cartTotal: this.state.cartTotal,
           addNewCartItem: this.newCartItemHandler,
           deleteCartItem: this.deleteCartItemHandler,
+          checkout:this.purchaseInformation,
+          emptyCart: this.emptyCart
         }}
       >
         {this.props.children}
