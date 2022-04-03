@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'; 
 
 import addIcn from "../../assets/icons/plus-solid.svg";
 import substractIcn from "../../assets/icons/minus-solid.svg";
@@ -57,4 +58,11 @@ export class Counter extends React.Component {
       </CounterBox>
     );
   }
+}
+
+
+Counter.propTypes ={
+  item: PropTypes.object.isRequired, 
+  action: PropTypes.func.isRequired, 
+  loc: PropTypes.string
 }

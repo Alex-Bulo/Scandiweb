@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'; 
 
 import Price from "./Price";
 
@@ -19,4 +20,9 @@ export class PriceContainer extends React.Component {
       )
     );
   }
+}
+
+PriceContainer.propTypes ={
+  productsPriceInfo: PropTypes.array,
+  currency: PropTypes.string
 }

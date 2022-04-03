@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'; 
 
 import styled from "styled-components";
 
@@ -39,4 +40,10 @@ export class PopUpContainer extends React.Component {
       </BackgroundAll>
     );
   }
+}
+
+
+PopUpContainer.propTypes ={
+  clickHandler: PropTypes.func.isRequired,
+  op: PropTypes.string
 }

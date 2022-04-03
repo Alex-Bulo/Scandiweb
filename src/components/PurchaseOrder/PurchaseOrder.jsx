@@ -1,7 +1,7 @@
 import React from "react";
 
 import closeIcn from "../../assets/icons/xmark-solid.svg";
-import { PriceContainer } from "../Price/PriceContainer";
+
 import { CTA } from "../styledComponents";
 
 import "./PurchaseOrder.css";

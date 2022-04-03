@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'; 
 
 import {Snippets} from "../../components";
 
@@ -89,4 +90,11 @@ export class Carrousel extends React.Component {
       )
     );
   }
+}
+
+Carrousel.propTypes ={
+  images: PropTypes.arrayOf(PropTypes.string), 
+  name: PropTypes.string, 
+  inStock: PropTypes.bool,
+  hasSnippets: PropTypes.bool
 }

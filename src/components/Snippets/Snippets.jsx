@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'; 
 
 import "./Snippets.css";
 
@@ -28,4 +29,11 @@ export class Snippets extends React.Component {
 
       )
   }
+}
+
+Snippets.propTypes ={
+  images: PropTypes.array.isRequired,
+  name: PropTypes.string,
+  mainImage: PropTypes.number,
+  updateMainImage: PropTypes.func.isRequired,
 }

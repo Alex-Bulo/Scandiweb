@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'; 
 
 import "./Attributes.css";
 import { AttributeOption, AttributeSelected } from "./Attributes.styled";
@@ -97,3 +98,9 @@ export class Attributes extends React.Component {
   }
 }
 
+
+Attributes.propTypes ={
+  attribute: PropTypes.object.isRequired,
+  selectedAttributes: PropTypes.array,
+  selectHandler: PropTypes.func.isRequired,
+}
