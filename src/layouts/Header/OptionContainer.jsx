@@ -18,7 +18,7 @@ const Option = styled.div`
   cursor: pointer;
 `;
 
-class NavOption extends React.Component {
+class OptionContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = { optionLocation: null };
@@ -40,4 +40,4 @@ class NavOption extends React.Component {
   }
 }
 
-export default NavOption;
+export default OptionContainer;

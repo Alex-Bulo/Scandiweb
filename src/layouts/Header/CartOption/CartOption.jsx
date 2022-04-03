@@ -1,12 +1,12 @@
 import React from "react";
 
-import NavOption from "../Header/NavOption";
-import { Background } from "../../components/PopUpContainer/PopUpContainer";
+import OptionContainer from "../OptionContainer";
 import CartOverlay from "../CartOverlay/CartOverlay";
+import { PopUpContainer } from "../../../components";
 
-import {CartContext} from "../../services";
+import {CartContext} from "../../../services";
 
-import cartIcn from "../../assets/icons/empty-cart.svg";
+import cartIcn from "../../../assets/icons/empty-cart.svg";
 
 import "./CartOption.css";
 
@@ -31,7 +31,7 @@ class CartOption extends React.Component {
   render() {
     return (
       <section className="CartOption">
-        <NavOption
+        <OptionContainer
           getMiddlePosition={this.getOptionPositionHandler}
           clickHandler={this.popUpHandler}
         >
@@ -50,10 +50,10 @@ class CartOption extends React.Component {
               </p>
             )}
           </div>
-        </NavOption>
+        </OptionContainer>
 
         {this.state.popUpDisplay && (
-          <Background
+          <PopUpContainer
             op={0.2}
             clickHandler={() =>
               this.setState({ ...this.state, popUpDisplay: false })
@@ -64,7 +64,7 @@ class CartOption extends React.Component {
                 this.setState({ ...this.state, popUpDisplay: false })
               }
             />
-          </Background>
+          </PopUpContainer>
         )}
       </section>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProductPreview from "../../components/ProductPreview/ProductPreview";
+import {ProductPreview} from "../../components";
 
 import { addNavigationTo, getProductsByCategory } from "../../services";
 

@@ -1,11 +1,11 @@
 import React from "react";
 
-import NavOption from "../Header/NavOption";
-import { Background } from "../../components/PopUpContainer/PopUpContainer";
+import OptionContainer from "../OptionContainer";
+import { PopUpContainer } from "../../../components";
 
-import {CurrencyContext} from "../../services";
+import {CurrencyContext} from "../../../services";
 
-import arrowDown from "../../assets/icons/angle-down-solid.svg";
+import arrowDown from "../../../assets/icons/angle-down-solid.svg";
 
 import "./CurrencyOption.css";
 import { AvailableCurrency, CurrencySwitcher } from "./CurrencyOption.styled";
@@ -31,7 +31,7 @@ class CurrencyOption extends React.Component {
     return (
       this.context.selectedCurrency && (
         <section className="CurrencyOption">
-          <NavOption
+          <OptionContainer
             getMiddlePosition={this.getOptionPositionHandler}
             clickHandler={this.popUpHandler}
           >
@@ -41,10 +41,10 @@ class CurrencyOption extends React.Component {
               alt="Arrow icon"
               className={`arrow-icn ${this.state.popUpDisplay ? "up" : "down"}`}
             />
-          </NavOption>
+          </OptionContainer>
 
           {this.state.popUpDisplay && (
-            <Background
+            <PopUpContainer
               op={0}
               clickHandler={() =>
                 this.setState({ ...this.state, popUpDisplay: false })
@@ -63,7 +63,7 @@ class CurrencyOption extends React.Component {
                   </AvailableCurrency>
                 ))}
               </CurrencySwitcher>
-            </Background>
+            </PopUpContainer>
           )}
         </section>
       )

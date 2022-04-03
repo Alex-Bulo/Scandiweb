@@ -1,5 +1,7 @@
 import React from "react";
+
 import { calculatePrice } from "../../services";
+
 import "./Price.css";
 
 class Price extends React.Component {
@@ -12,4 +14,4 @@ class Price extends React.Component {
   }
 }
 
-export default Price;
+export default Price

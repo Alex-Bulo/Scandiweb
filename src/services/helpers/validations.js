@@ -1,4 +1,4 @@
-import { compareAttributes } from "../index";
+import { compareAttributes } from "../../services";
 
 export const validateNewCartItem = (product, qty, selectedAttributes) => {
     if (!qty || !product.inStock) {

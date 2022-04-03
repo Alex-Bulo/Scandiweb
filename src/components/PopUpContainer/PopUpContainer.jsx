@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "styled-components";
 
 const BackgroundAll = styled.div`
@@ -28,7 +29,7 @@ const BackgroundBody = styled.div`
   animation: fade-in 0.3s ease-in-out 0.1s forwards;
 `;
 
-export class Background extends React.Component {
+export class PopUpContainer extends React.Component {
   render() {
     return (
       <BackgroundAll onClick={this.props.clickHandler}>

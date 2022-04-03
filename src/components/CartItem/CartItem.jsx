@@ -1,11 +1,11 @@
 import React from "react";
+
+import {Carrousel, Counter, PriceContainer} from "../../components";
+
 import { AttributeOption, AttributeSelected } from "../Attributes/Attributes.styled";
-import Carrousel from "../Carrousel/Carrousel";
-import Counter from "../Counter/Counter";
-import PriceContainer from "../Price/PriceContainer";
 import { CartItemBox, ItemDetails } from "./CartItem.styled";
 
-class CartItem extends React.Component {
+export class CartItem extends React.Component {
   render() {
     const { item, addNewItem, deleteItem, loc } = this.props;
 
@@ -59,5 +59,3 @@ class CartItem extends React.Component {
     );
   }
 }
-
-export default CartItem;

@@ -1,8 +1,6 @@
 import React from "react";
 
-import Attributes from "../../components/Attributes/Attributes";
-import Carrousel from "../../components/Carrousel/Carrousel";
-import PriceContainer from "../../components/Price/PriceContainer";
+import {Attributes, Carrousel, PriceContainer} from "../../components";
 
 import { CartContext, addNavigationTo, validateNewCartItem, getProductById } from "../../services";
 

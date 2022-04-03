@@ -3,7 +3,10 @@ import styled from "styled-components";
 export const CounterBox = styled.div`
     height:100%;
     max-width:45px;
+    
     margin-right: 5px;
+    margin-left: auto;
+    
     display: flex;
     flex-direction:column;
     align-items:flex-end;

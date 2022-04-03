@@ -1,8 +1,9 @@
 import React from "react";
-import { AttributeOption, AttributeSelected } from "./Attributes.styled";
-import "./Attributes.css";
 
-class Attributes extends React.Component {
+import "./Attributes.css";
+import { AttributeOption, AttributeSelected } from "./Attributes.styled";
+
+export class Attributes extends React.Component {
   constructor(props) {
     super(props);
     this.onSelect = this.onSelect.bind(this);
@@ -96,4 +97,3 @@ class Attributes extends React.Component {
   }
 }
 
-export default Attributes;

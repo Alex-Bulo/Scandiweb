@@ -1,9 +1,10 @@
 import React from "react";
-import CartItem from "../../components/CartItem/CartItem";
-import PriceContainer from "../../components/Price/PriceContainer";
-import { CTA, CTASecondary } from "../../components/styledComponents";
-import {CartContext} from "../../services";
-import { addNavigationTo } from "../../services";
+
+import {CartItem, PriceContainer} from "../../../components";
+
+import {CartContext, addNavigationTo} from "../../../services";
+
+import { CTA, CTASecondary } from "../../../components/styledComponents";
 import { CartOverlayBox } from "./CartOverlay.styled";
 
 class CartOverlay extends React.Component {

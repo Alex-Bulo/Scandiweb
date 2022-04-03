@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Switcher } from "../../components/styledComponents";
+import { Switcher } from "../../../components/styledComponents";
 
 export const CartOverlayBox = styled(Switcher)`
   align-items:flex-start;

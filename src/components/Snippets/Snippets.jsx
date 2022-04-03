@@ -1,7 +1,8 @@
 import React from "react";
+
 import "./Snippets.css";
 
-class Snippets extends React.Component {
+export class Snippets extends React.Component {
 
   render() {
     const { images, name, mainImage, updateMainImage } = this.props;
@@ -28,5 +29,3 @@ class Snippets extends React.Component {
       )
   }
 }
-
-export default Snippets;

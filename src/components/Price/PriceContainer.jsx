@@ -1,9 +1,12 @@
 import React from "react";
-import {CurrencyContext} from '../../services';
+
 import Price from "./Price";
+
+import {CurrencyContext} from '../../services';
+
 import "./Price.css";
 
-class PriceContainer extends React.Component {
+export class PriceContainer extends React.Component {
   static contextType = CurrencyContext;
   render() {
 
@@ -17,5 +20,3 @@ class PriceContainer extends React.Component {
     );
   }
 }
-
-export default PriceContainer;

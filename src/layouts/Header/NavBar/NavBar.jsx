@@ -1,7 +1,9 @@
 import React from "react";
+
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+
 import "./NavBar.css";
+import styled from "styled-components";
 
 const MenuCategory = styled.li`
   width: 97px;

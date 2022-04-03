@@ -1,8 +1,10 @@
 import React from "react";
-import Snippets from "../Snippets/Snippets";
+
+import {Snippets} from "../../components";
+
 import "./Carrousel.css";
 
-class Carrousel extends React.Component {
+export class Carrousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = { mainImage: null };
@@ -88,5 +90,3 @@ class Carrousel extends React.Component {
     );
   }
 }
-
-export default Carrousel;

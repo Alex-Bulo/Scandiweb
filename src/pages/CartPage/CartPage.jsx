@@ -1,7 +1,6 @@
 import React from "react";
 
-import PriceContainer from "../../components/Price/PriceContainer";
-import CartItem from "../../components/CartItem/CartItem";
+import {PriceContainer, CartItem} from "../../components";
 
 import { CartContext } from "../../services";
 

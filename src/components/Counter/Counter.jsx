@@ -1,10 +1,12 @@
 import React from "react";
-import { Count, CounterBox, CounterBtn } from "./CounterBox.styled";
+
 import addIcn from "../../assets/icons/plus-solid.svg";
 import substractIcn from "../../assets/icons/minus-solid.svg";
 import deleteIcn from "../../assets/icons/trash-can-regular.svg";
 
-class Counter extends React.Component {
+import { Count, CounterBox, CounterBtn } from "./CounterBox.styled";
+
+export class Counter extends React.Component {
   constructor(props) {
     super(props);
     this.substractHandler = this.substractHandler.bind(this);
@@ -56,5 +58,3 @@ class Counter extends React.Component {
     );
   }
 }
-
-export default Counter;
