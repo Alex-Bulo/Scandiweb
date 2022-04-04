@@ -63,6 +63,6 @@ export class Counter extends React.Component {
 
 Counter.propTypes ={
   item: PropTypes.object.isRequired, 
-  action: PropTypes.func.isRequired, 
+  action: PropTypes.objectOf(PropTypes.func).isRequired, 
   loc: PropTypes.string
 }

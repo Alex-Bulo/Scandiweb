@@ -54,7 +54,7 @@ class CartOption extends React.Component {
 
         {this.state.popUpDisplay && (
           <PopUpContainer
-            op={0.2}
+            op='0.2'
             clickHandler={() =>
               this.setState({ ...this.state, popUpDisplay: false })
             }
@@ -63,6 +63,7 @@ class CartOption extends React.Component {
               clickHandler={() =>
                 this.setState({ ...this.state, popUpDisplay: false })
               }
+              checkout={this.props.checkout}
             />
           </PopUpContainer>
         )}

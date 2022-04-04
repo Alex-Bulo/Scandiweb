@@ -1,6 +1,6 @@
 import React from "react";
 
-import {CartItem, PriceContainer} from "../../../components";
+import {CartItem, PopUpContainer, PriceContainer, PurchaseOrder} from "../../../components";
 
 import {CartContext, addNavigationTo} from "../../../services";
 
@@ -59,12 +59,14 @@ class CartOverlay extends React.Component {
           </CTASecondary>
           <CTA
             width={"50%"}
-            onClick={() => alert("checkout msg with prices calculated")}
+            onClick={this.props.checkout}
           >
             Checkout
           </CTA>
         </div>
+
       </CartOverlayBox>
+    
     );
   }
 }

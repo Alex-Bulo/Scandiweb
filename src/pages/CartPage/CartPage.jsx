@@ -1,6 +1,11 @@
 import React from "react";
 
-import {PriceContainer, CartItem, PopUpContainer, PurchaseOrder} from "../../components";
+import {
+  PriceContainer,
+  CartItem,
+  PopUpContainer,
+  PurchaseOrder,
+} from "../../components";
 
 import { CartContext } from "../../services";
 
@@ -9,21 +14,21 @@ import { CTA } from "../../components/styledComponents";
 
 class CartPage extends React.Component {
   static contextType = CartContext;
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {order:null}
+    this.state = { order: null };
     this.checkoutHandler = this.checkoutHandler.bind(this);
     this.confirmCheckoutHandler = this.confirmCheckoutHandler.bind(this);
   }
 
-  checkoutHandler(){
-    const purchaseOrder = this.context.checkout()
-    this.setState({order:purchaseOrder})
+  checkoutHandler() {
+    const purchaseOrder = this.context.checkout();
+    this.setState({ order: purchaseOrder });
   }
 
-  confirmCheckoutHandler(){
-    this.context.emptyCart()
-    this.setState({order:null})
+  confirmCheckoutHandler() {
+    this.context.emptyCart();
+    this.setState({ order: null });
   }
 
   render() {
@@ -39,10 +44,7 @@ class CartPage extends React.Component {
           <section className="CP-top">
             <h1 className="CP-title">Cart</h1>
             <PriceContainer productsPriceInfo={priceInfo} />
-            <CTA
-              width={"30%"}
-              onClick={this.checkoutHandler}
-            >
+            <CTA width={"30%"} onClick={this.checkoutHandler}>
               Checkout
             </CTA>
           </section>
@@ -58,12 +60,18 @@ class CartPage extends React.Component {
             ))}
           </section>
 
-          {this.state.order && <PopUpContainer op={0.2}
-            clickHandler={() =>
-              this.setState({ order:false })
-            }>
-            <PurchaseOrder order={this.state.order} closeHandler={()=> this.setState({order:false})} confirmHandler={this.confirmCheckoutHandler}/>
-            </PopUpContainer>}
+          {this.state.order && (
+            <PopUpContainer
+              op={0.2}
+              clickHandler={() => this.setState({ order: false })}
+            >
+              <PurchaseOrder
+                order={this.state.order}
+                closeHandler={() => this.setState({ order: false })}
+                confirmHandler={this.confirmCheckoutHandler}
+              />
+            </PopUpContainer>
+          )}
         </main>
       )
     );

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'; 
 
 import closeIcn from "../../assets/icons/xmark-solid.svg";
 
@@ -61,4 +62,10 @@ export class PurchaseOrder extends React.Component {
       </div>
     );
   }
+}
+
+PurchaseOrder.propTypes ={
+  order: PropTypes.array.isRequired,
+  closeHandler: PropTypes.func.isRequired,
+  confirmHandler: PropTypes.func.isRequired,
 }

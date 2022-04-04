@@ -6,15 +6,22 @@ import { client, Query } from "@tilework/opus";
 import NavBar from "./NavBar/NavBar";
 import CurrencyOption from "./CurrencyOption/CurrencyOption";
 import CartOption from "./CartOption/CartOption";
+import { PopUpContainer, PurchaseOrder } from "../../components";
 
+import { CartContext } from "../../services";
 import logo from "../../assets/images/a-logo.png";
 
 import "./Header.css";
 
 class Header extends React.Component {
+  static contextType = CartContext;
+
   constructor() {
     super();
-    this.state = { menuCategories: null };
+    this.state = { menuCategories: null, order:null };
+    this.checkoutHandler = this.checkoutHandler.bind(this);
+    this.confirmCheckoutHandler = this.confirmCheckoutHandler.bind(this);
+
   }
 
   async componentDidMount() {
@@ -27,8 +34,15 @@ class Header extends React.Component {
     this.setState({ menuCategories: categories });
   }
 
-  // render CurrencySelector
-  // render CartSnippet
+  checkoutHandler() {
+    const purchaseOrder = this.context.checkout();
+    this.setState({ order: purchaseOrder });
+  }
+
+  confirmCheckoutHandler() {
+    this.context.emptyCart();
+    this.setState({ order: null });
+  }
 
   render() {
     return (
@@ -44,7 +58,23 @@ class Header extends React.Component {
         <div className="picker-container">
           <CurrencyOption />
 
-          <CartOption />
+          <CartOption checkout={this.checkoutHandler}/>
+
+          
+        {this.state.order && (
+            <PopUpContainer
+              op={0.2}
+              clickHandler={() => this.setState({ order: false })}
+            >
+              <PurchaseOrder
+                order={this.state.order}
+                closeHandler={() => this.setState({ order: false })}
+                confirmHandler={this.confirmCheckoutHandler}
+              />
+            </PopUpContainer>
+          )}
+
+
         </div>
       </header>
     );
