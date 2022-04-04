@@ -7,7 +7,7 @@ This task will put you face-to-face to some common tasks in the world of React d
 You are be expected to fetch data from the GraphQL endpoint and to provide an interface to view and interact with this data.
 The solution should get implemented as per design. (see docs folder for design + further instructions)
 ***
-**Ecommerce site** with Product Listing Page, Product Description Page and Cart Page
+**Ecommerce site**
 
  - Requirements:
 	-   React. Anything not written in React will be rejected automatically.
