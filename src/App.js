@@ -3,7 +3,7 @@ import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import Header from "./layouts/Header/Header";
-import {CartPage, CategoryPage, ProductPage} from './pages'
+import {CartPage, CategoryPage, ErrorPage, ProductPage} from './pages'
 
 class App extends React.Component {
 
@@ -23,6 +23,8 @@ class App extends React.Component {
           <Route path="pdp/:id" element={<ProductPage />} />
         
           <Route path="cart" element={<CartPage />} />
+
+          <Route path="error" element={<ErrorPage />} />
 
         </Routes>
       </div>

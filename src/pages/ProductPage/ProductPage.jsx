@@ -23,7 +23,12 @@ class ProductPage extends React.Component {
 
     const newProduct = await getProductById(id);
 
-    this.setState({ product: newProduct, selectedAttributes: [], qty: 1, errors:false });
+    if(newProduct === 'error'){
+      this.props.navigate('/error')
+    }else{
+
+      this.setState({ product: newProduct, selectedAttributes: [], qty: 1, errors:false });
+    }
   }
 
   selectAttributeHandler(newSelectedAttributes) {

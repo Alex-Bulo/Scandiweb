@@ -16,8 +16,11 @@ class CategoryPage extends React.Component {
     const id = this.props.params.id || "all";
 
     const newProducts = await getProductsByCategory(id);
-
-    this.setState({ products: newProducts, category: id });
+    if(newProducts ==='error'){
+      this.props.navigate('/error')
+    }else{
+      this.setState({ products: newProducts, category: id });
+    }
   }
 
   async componentDidUpdate() {
