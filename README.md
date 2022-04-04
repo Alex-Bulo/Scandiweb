@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Scandiweb challange
+## Coding project test for Scandiweb
+Dev: Alejandro Bullorini
+***
+*Instructions Overview:*
+This task will put you face-to-face to some common tasks in the world of React development and possibly will get you acknowledged with a bit of new technologies.
+You are be expected to fetch data from the GraphQL endpoint and to provide an interface to view and interact with this data.
+The solution should get implemented as per design. (see docs folder for design + further instructions)
+***
+**Ecommerce site** with Product Listing Page, Product Description Page and Cart Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - Requirements:
+	-   React. Anything not written in React will be rejected automatically.
+	-   Use Class Components.
+	-   Create-react-app to scaffold the application.
+ - Allowed:
+	- State management libraries (e.g. Redux, Recoil)
+	- CSS-in-JS approach allowers (e.g. styled-components)
+- Prohibited:
+	-   UI libraries (e.g. Tailwind, Material UI, Ant Design)
+	-   Functional components
+- Functionality:
+	-   PLP - product listing page, a.k.a. category page
+	-   PDP - product description page, a.k.a. product page
+	-   Cart page + Cart overlay (minicart)
+ ***
+**Instalation**
+ 
+1. Clone repository `git clone https://github.com/Alex-Bulo/scandiweb-alejandro-bullorini.git`
+2. Initialize backend from https://github.com/scandiweb/junior-react-endpoint
+3. Run `npm start` in the console to install and run the application
+***
+ [Comments] 
+>  - Use of context for Cart and selected Currency across the SPA
+>  - Use of styled components
+>  - Use of downloaded fonts and icons as per request
+>  - Use of PropTypes
+>  - Validation on new item's properties to add to Cart
+>  - Pop-up message for checkout, before emptying Cart
