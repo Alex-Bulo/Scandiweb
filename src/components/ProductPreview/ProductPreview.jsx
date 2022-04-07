@@ -20,7 +20,7 @@ class ProductPreview extends React.Component {
 
 
   componentDidMount() {
-    this.setState({ active: false, qty: 1, selectedAttributes: [], errors:false});
+    this.setState({ active: false, qty: 0, selectedAttributes: [], errors:false});
   }
 
   enableProductHandler() {

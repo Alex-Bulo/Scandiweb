@@ -27,7 +27,7 @@ class ProductPage extends React.Component {
       this.props.navigate('/error')
     }else{
 
-      this.setState({ product: newProduct, selectedAttributes: [], qty: 1, errors:false });
+      this.setState({ product: newProduct, selectedAttributes: [], qty: 0, errors:false });
     }
   }
 

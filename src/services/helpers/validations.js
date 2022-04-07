@@ -1,7 +1,7 @@
 import { compareAttributes } from "../../services";
 
 export const validateNewCartItem = (product, qty, selectedAttributes) => {
-    if (!qty || !product.inStock) {
+    if (!product.inStock) {
       return "This product is out of stock";
     }
   

@@ -22,6 +22,8 @@ export class CartProvider extends React.Component {
   newCartItemHandler(newItem) {
   //adds newItem to cart when cart is empty
     if (this.state.cartItems.length === 0) {
+      //brand new items come with qty = 0
+      newItem.qty = newItem.qty === 0 ? newItem.qty = 1 : newItem.qty
       const itemToAdd = {order: this.state.cartItems.length+1, ...newItem}
 
       this.setState({ cartItems:[itemToAdd], cartTotal:itemToAdd.qty });
@@ -72,7 +74,8 @@ export class CartProvider extends React.Component {
 
 //if it's the same product we only want to update its qty
         if(isSameAttributes){
-          sameItemInCart.qty = newItem.qty
+          //brand new items from Detail or Home come with qty = 0, so we add 1
+          sameItemInCart.qty = newItem.qty === 0 ? sameItemInCart.qty + 1 : newItem.qty
         }
         newCart.push(sameItemInCart)
 
