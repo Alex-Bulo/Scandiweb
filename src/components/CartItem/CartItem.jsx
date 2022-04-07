@@ -1,9 +1,7 @@
 import React from "react";
 
 import {Carrousel, Counter, PriceContainer, Attributes} from "../../components";
-// import {  } from "../Attributes/Attributes";
 
-import { AttributeOption, AttributeSelected } from "../Attributes/Attributes.styled";
 import { CartItemBox, ItemDetails } from "./CartItem.styled";
 
 export class CartItem extends React.Component {
