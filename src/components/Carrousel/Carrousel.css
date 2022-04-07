@@ -11,9 +11,10 @@
 
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .carrousel-image{
-    width: 100%;
+    width: 40%;
 }
 .moving-icn{
     width: 15%;
