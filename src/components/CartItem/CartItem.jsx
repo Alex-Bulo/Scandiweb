@@ -20,7 +20,7 @@ export class CartItem extends React.Component {
           </h3>
 
           <PriceContainer
-            productsPriceInfo={[{ prices: item.prices, qty: item.qty }]}
+            productsPriceInfo={[{ prices: item.prices, qty: 1 }]}
           />
           <div className="cart-attributes">
             {item.selectedAttributes.map((attribute, i) => {
