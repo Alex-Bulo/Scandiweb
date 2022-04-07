@@ -38,7 +38,8 @@ export class CartProvider extends React.Component {
 
   //adds newItem to cart when the product doesn't exist in cart (keeps the rest of the products in the cart)
     if (sameItemsInCart.length === 0) {
-      
+        //brand new items come with qty = 0
+        newItem.qty = newItem.qty === 0 ? newItem.qty = 1 : newItem.qty
       const itemToAdd = {order: this.state.cartItems.length+1, ...newItem}
       newCart = [...this.state.cartItems, itemToAdd];
 
