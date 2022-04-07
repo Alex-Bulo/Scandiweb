@@ -12,6 +12,10 @@ export class Attributes extends React.Component {
 
   onSelect(e,attribute) {
     e.stopPropagation()
+    if(!this.props.selectHandler){
+      return
+    }
+
       //adds the new attribute if no Attributes are selected
       if(this.props.selectedAttributes.length===0){
         
@@ -102,5 +106,5 @@ export class Attributes extends React.Component {
 Attributes.propTypes ={
   attribute: PropTypes.object.isRequired,
   selectedAttributes: PropTypes.array,
-  selectHandler: PropTypes.func.isRequired,
+  selectHandler: PropTypes.func,
 }

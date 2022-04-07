@@ -1,6 +1,7 @@
 import React from "react";
 
-import {Carrousel, Counter, PriceContainer} from "../../components";
+import {Carrousel, Counter, PriceContainer, Attributes} from "../../components";
+// import {  } from "../Attributes/Attributes";
 
 import { AttributeOption, AttributeSelected } from "../Attributes/Attributes.styled";
 import { CartItemBox, ItemDetails } from "./CartItem.styled";
@@ -23,23 +24,15 @@ export class CartItem extends React.Component {
             productsPriceInfo={[{ prices: item.prices, qty: 1 }]}
           />
           <div className="cart-attributes">
-            {item.selectedAttributes.map((attribute, i) => {
-              return loc === "overlay" ? (
-                <AttributeOption
-                  key={i}
-                  type={attribute.items.type}
-                  value={attribute.items.id}
-                >
-                  {attribute.items.type !== "swatch" && (
-                    <p>{attribute.items.id}</p>
-                  )}
-                </AttributeOption>
-              ) : (
-                <AttributeSelected key={attribute.items.id} type={attribute.items.type} value={attribute.items.value}>
-                  {attribute.items.type !== "swatch" && <p>{attribute.items.id}</p>}
-                </AttributeSelected>
-              );
-            })}
+            
+          {item.attributes.map((attribute) => (
+                  <Attributes
+                    key={attribute.id}
+                    attribute={attribute}
+                    selectedAttributes={item.selectedAttributes}
+                    // selectHandler={unde}
+                  />
+                ))}
           </div>
         </ItemDetails>
 
