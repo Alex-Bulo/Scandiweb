@@ -2,7 +2,7 @@ import React from "react";
 
 import {Attributes, Carrousel, PriceContainer} from "../../components";
 
-import { CartContext, addNavigationTo, validateNewCartItem, getProductById } from "../../services";
+import { CartContext, addNavigationTo, validateNewCartItem, getProductById, getHTMLElements } from "../../services";
 
 import "./ProductPage.css";
 import { CTA } from "../../components/styledComponents";
@@ -15,7 +15,8 @@ class ProductPage extends React.Component {
     super(props);
     this.state = { product: null, selectedAttributes: null, qty: null, errors:null };
     this.selectAttributeHandler = this.selectAttributeHandler.bind(this);
-    this.addToCartHandler = this.addToCartHandler.bind(this)
+    this.addToCartHandler = this.addToCartHandler.bind(this);
+    this.description = React.createRef();
   }
 
   async componentDidMount() {
@@ -29,6 +30,10 @@ class ProductPage extends React.Component {
 
       this.setState({ product: newProduct, selectedAttributes: [], qty: 0, errors:false });
     }
+    
+    const newElements = getHTMLElements(newProduct.description)
+
+    this.description.current.innerHTML = newElements.innerHTML  
   }
 
   selectAttributeHandler(newSelectedAttributes) {
@@ -96,11 +101,8 @@ class ProductPage extends React.Component {
             </div>
 
 
-            <section className="container description-container">
-              <p
-                dangerouslySetInnerHTML={{ __html: `${product.description}` }}
-              />
-            </section>
+            <section ref={this.description} className="container description-container"/>
+
           </ItemDetails>
         </main>
       )

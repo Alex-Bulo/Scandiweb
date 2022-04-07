@@ -38,4 +38,44 @@ const compareAttributes = (arrayA,arrayB)=>{
 
 }
 
-export {addNavigationTo, calculatePrice, compareAttributes}
+const extractHTMLElements = (stringHTML)=>{
+  const originalLength = stringHTML.length
+  
+  const newElements = []
+  let newString = stringHTML
+  for(let i=0; i < originalLength;){
+    
+    const opening = newString.indexOf("<")
+    const closure = newString.indexOf(">")
+    const blank = newString.indexOf(" ") === -1 ? originalLength : newString.indexOf(" ")
+  
+    const openingLimit = closure < blank ? closure : blank
+    
+    const tag = newString.slice(opening+1,closure)
+    
+    const closingTag = newString.indexOf("</"+tag+">")
+    
+    const child = newString.slice(openingLimit+1,closingTag);
+
+    let subChild
+    if(child.indexOf("<")>0){
+       subChild = extractHTMLElements(child.slice(child.indexOf("<"),)) 
+      child = child.slice(0,child.indexOf("<"))
+    }
+    newString = newString.slice(closingTag + 3 + tag.length,)
+  
+    newElements.push({tag,child,subChild})
+    i= i + closingTag + 3 + tag.length;
+  }
+
+  return newElements
+}
+
+function getHTMLElements(html) {
+  var template = document.createElement('div');
+  template.innerHTML = html;
+  return template;
+}
+
+export {addNavigationTo, calculatePrice, compareAttributes, getHTMLElements}
+
