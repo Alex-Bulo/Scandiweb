@@ -32,7 +32,7 @@ export const CartItemBox = styled.article`
     margin: ${(props) => (props.loc === "overlay" ? "auto" : "none")};
     margin-left: ${(props) => (props.loc !== "overlay" && "20px")};
 
-    width: ${(props) => (props.loc === "overlay" ? "35%" : "10%")};
+    width: ${(props) => (props.loc === "overlay" ? "35%" : "15%")};
   }
   .Price{
     margin-left: 0 !important;
