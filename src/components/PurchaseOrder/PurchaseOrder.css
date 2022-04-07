@@ -31,6 +31,9 @@
 
   display: flex;
 }
+.order-item ul{
+  list-style-type: none;
+}
 .order-item span {
   font-weight: 700;
 }

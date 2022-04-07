@@ -15,8 +15,9 @@ const calculatePrice = (productInfo, currency) => {
     const priceToUse = product.prices.filter(
       (price) => price.currency.symbol === currency
     )[0]
-      
-    const calculatedPrice = (product.qty * Number(priceToUse.amount));
+    
+    const items = product.qty === 0? 1 : product.qty
+    const calculatedPrice = (items * Number(priceToUse.amount));
     
     return calculatedPrice + total
   },0)

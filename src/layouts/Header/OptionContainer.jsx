@@ -7,7 +7,7 @@ const Option = styled.div`
   width: 40px;
   margin-right: 10px;
   
-  z-index:3;
+  /* z-index:3; */
 
   font-weight: 500;
   font-size: 18px;

@@ -28,11 +28,11 @@
     margin-left: 5px;
 }
 .price-container,
-.pdp-title,
-.description-container{
+.pdp-title{
     margin-left: 10px;
 }
 .description-container{
+    padding-left: 15px;
     max-height: 225px;
 
     overflow-y: scroll;
