@@ -46,7 +46,7 @@ export const getProductById = async (id) => {
 
     const myQuery = new Query("product", true)
       .addArgument("id", "String!", id)
-      .addFieldList(["name", "inStock", "gallery", "description", "brand"])
+      .addFieldList(["id", "name", "inStock", "gallery", "description", "brand"])
       .addField(
         new Field("attributes", true)
           .addFieldList(["id", "name", "type"])

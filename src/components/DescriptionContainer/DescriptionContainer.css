@@ -1,0 +1,11 @@
+.description-container{
+    padding-left: 15px;
+    max-height: 225px;
+
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.description-container::-webkit-scrollbar {
+    display: none;
+}

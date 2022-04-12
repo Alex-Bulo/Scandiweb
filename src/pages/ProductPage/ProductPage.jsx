@@ -7,6 +7,7 @@ import { CartContext, addNavigationTo, validateNewCartItem, getProductById, getH
 import "./ProductPage.css";
 import { CTA } from "../../components/styledComponents";
 import { ItemDetails } from "../../components/CartItem/CartItem.styled";
+import DescriptionContainer from "../../components/DescriptionContainer/DescriptionContainer";
 
 class ProductPage extends React.Component {
   static contextType = CartContext
@@ -16,7 +17,7 @@ class ProductPage extends React.Component {
     this.state = { product: null, selectedAttributes: null, qty: null, errors:null };
     this.selectAttributeHandler = this.selectAttributeHandler.bind(this);
     this.addToCartHandler = this.addToCartHandler.bind(this);
-    this.description = React.createRef();
+    // this.description = React.createRef();
   }
 
   async componentDidMount() {
@@ -31,9 +32,6 @@ class ProductPage extends React.Component {
       this.setState({ product: newProduct, selectedAttributes: [], qty: 0, errors:false });
     }
     
-    const newElements = getHTMLElements(newProduct.description)
-
-    this.description.current.innerHTML = newElements.innerHTML  
   }
 
   selectAttributeHandler(newSelectedAttributes) {
@@ -101,7 +99,7 @@ class ProductPage extends React.Component {
             </div>
 
 
-            <section ref={this.description} className="container description-container"/>
+            <DescriptionContainer description={product.description}/>
 
           </ItemDetails>
         </main>

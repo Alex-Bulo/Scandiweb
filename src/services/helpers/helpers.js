@@ -1,4 +1,5 @@
 
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 // v6 React Route components don't provide location or match props anymore
 // creating just one functional component to inject url information as props
@@ -40,8 +41,10 @@ const compareAttributes = (arrayA,arrayB)=>{
 
 
 function getHTMLElements(html) {
-  var template = document.createElement('div');
+  const template = document.createElement('div');
+  
   template.innerHTML = html;
+
   return template;
 }
 
