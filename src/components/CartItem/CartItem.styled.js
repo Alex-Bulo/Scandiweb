@@ -5,7 +5,7 @@ export const CartItemBox = styled.article`
   margin-top: 1px;
 
   width: 100%;
-  height: ${(props) => (props.loc === "overlay" ? "135px" : "185px")};
+  min-height: ${(props) => (props.loc === "overlay" ? "135px" : "185px")};
 
   border-top: 1px solid rgba(229, 229, 229, 1);
 
@@ -16,6 +16,7 @@ export const CartItemBox = styled.article`
   .cart-attributes {
 
     display: flex;
+    flex-direction:column;
 
     overflow-x: scroll;
     

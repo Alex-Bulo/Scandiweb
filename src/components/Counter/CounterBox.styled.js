@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CounterBox = styled.div`
-    height:100%;
+    /* height:100%; */
     max-width:45px;
     
     margin-right: 5px;
