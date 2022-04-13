@@ -1,6 +1,6 @@
 import React from "react";
 
-import {CartItem, PopUpContainer, PriceContainer, PurchaseOrder} from "../../../components";
+import {CartItem, PriceContainer} from "../../../components";
 
 import {CartContext, addNavigationTo} from "../../../services";
 

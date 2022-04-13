@@ -40,13 +40,5 @@ const compareAttributes = (arrayA,arrayB)=>{
 }
 
 
-function getHTMLElements(html) {
-  const template = document.createElement('div');
-  
-  template.innerHTML = html;
-
-  return template;
-}
-
-export {addNavigationTo, calculatePrice, compareAttributes, getHTMLElements}
+export {addNavigationTo, calculatePrice, compareAttributes}
 

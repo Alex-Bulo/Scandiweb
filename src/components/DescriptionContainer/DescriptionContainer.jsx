@@ -1,16 +1,18 @@
 import React from "react";
-import JsxParser from "react-jsx-parser";
 
+import { parseHTML } from "../../services";
 import "./DescriptionContainer.css";
 
-class DescriptionContainer extends React.Component {
+export class DescriptionContainer extends React.Component {
 
   render() {
 
+      const reactElements = parseHTML(this.props.description)
+
     return <section className="container description-container">
-        <JsxParser jsx={this.props.description}/>
+        {reactElements}
     </section>;
   }
 }
 
-export default DescriptionContainer;
+
